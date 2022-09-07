@@ -1,0 +1,47 @@
+Redirected from: ./src/problems/drones
+Building drones
+CFG=release
+
+cp builds/release/problems/drones/solve problems/drones/solve
+cp builds/release/problems/drones/simulate problems/drones/simulate
+cp builds/release/problems/drones/flight problems/drones/flight
+cp builds/release/problems/drones/solve src/problems/drones/solve
+cp builds/release/problems/drones/simulate src/problems/drones/simulate
+cp builds/release/problems/drones/flight src/problems/drones/flight
+Seed: 1587025518
+InitialPositions = (8, 3) (8, 9) 
+Constructed the DronesModel
+Discount: 1
+Size: 10 by 13
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 5
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+48143 histories in 2000.04ms.
+Total solving time: 2000.06ms
+Saving to file...    Done.
+Scanning interfaces for Crazyflies...
+Crazyflies found:
+
+
+
+
+drone not available!
+
+

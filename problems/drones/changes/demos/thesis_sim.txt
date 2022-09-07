@@ -1,0 +1,6 @@
+t 2 : 1
+Add Obstacles: (4, 3) (4, 3)
+t 4 : 1
+Add Obstacles: (3, 9) (3, 9)
+t 7 : 1
+Add Obstacles: (1, 4) (1, 5)
