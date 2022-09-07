@@ -12,7 +12,9 @@ This repository is set up to develop the necessary software to implement a POMDP
 4. [Bitcraze CrazyRadio Dongle](https://store.bitcraze.io/collections/accessories/products/crazyradio-pa)
 5. [Infrared Positioning Systems](https://store.bitcraze.io/collections/positioning/products/lighthouse-v2-base-station)
 
-## Software Toolkit
+## POMDP Model - TAPIR Software Toolkit
+This toolkit is being used as it provides a framework that can be integrated with the Bitcraze Crazyflie drones. 
+
 For more information on the POMDP model used please visit -> [TAPIR POMDP - Master](https://github.com/RDLLab/tapir)
 
 ### Creators
