@@ -7,9 +7,9 @@
 
 ### Hardware
 1. Laptop or Desktop
-2. Bitcraze Crazyflie Drones v2.1
-3. Bitcraze CrazyRadio Dongle
-4. 
+2. [Bitcraze Crazyflie Drones v2.1](https://store.bitcraze.io/products/crazyflie-2-1)
+3. [Bitcraze CrazyRadio Dongle](https://store.bitcraze.io/collections/accessories/products/crazyradio-pa)
+4. [Infrared Positioning Systems](https://store.bitcraze.io/collections/positioning/products/lighthouse-v2-base-station)
 
 ## Software Toolkit
 For more information on the POMDP model used please visit -> [TAPIR POMDP - Master](https://github.com/RDLLab/tapir)
