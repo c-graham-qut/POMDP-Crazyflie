@@ -33,3 +33,11 @@ For the latest news, please visit the TAPIR website.
 ### Installation
 Download the entire repository into a folder of your choise.
 Open a 
+
+
+## General Information
+
+### Communication 
+The Crazyflie radio dongles operate within the frequency bandwidth XX-XX
+The infrared sensors operate within the frequency bandwidth XX-XX
+
