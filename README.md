@@ -1,5 +1,5 @@
 # Implementation of POMDP using Bitcraze Crazyflie Drones
-This repository is set up to develop the necessary software to perform POMDP using the Bitcraze Crazyflie Drones for a thesis topic at the Queensland Univeristy of Technology (QUT). 
+This repository is set up to develop the necessary software to implement a POMDP model using the Bitcraze Crazyflie Drones for a thesis topic at the Queensland Univeristy of Technology (QUT). 
 
 
 ## Requirements
