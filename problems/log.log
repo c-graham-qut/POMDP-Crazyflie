@@ -1,0 +1,506 @@
+Run #1
+Reward: -6.25
+t = 0
+S: (8, 3) (8, 9) isLanded: 0
+A: FORWARD
+O: (7, 3) (7, 9) isLanded = 0
+R: -0.125
+t = 1
+S: (7, 3) (7, 9) isLanded: 0
+A: FORWARD
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 2
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 3
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 4
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 5
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 6
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 7
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 8
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 9
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 10
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 11
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 12
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 13
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 14
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 15
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 16
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 17
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 18
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (7, 9) isLanded = 0
+R: -0.125
+t = 19
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 20
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 21
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 22
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 23
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 24
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 25
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 26
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 27
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 28
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 29
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 30
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 31
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 32
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 33
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 34
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 35
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 36
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 37
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 38
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 39
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (7, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 40
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 41
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 42
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 43
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 44
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 45
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 46
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 47
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 48
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 49
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 4) (6, 9) isLanded = 0
+R: -0.125
+Final State: (6, 3) (6, 9) isLanded: 0
+Run #2
+Reward: -6.45
+t = 0
+S: (8, 3) (8, 9) isLanded: 0
+A: FORWARD
+O: (7, 3) (7, 9) isLanded = 0
+R: -0.125
+t = 1
+S: (7, 3) (7, 9) isLanded: 0
+A: FORWARD
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 2
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 3
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 4
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 5
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (5, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 6
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 7
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 8
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 9
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 10
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 11
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 12
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 13
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 14
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 15
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 16
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 17
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 18
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 19
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 20
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 21
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 22
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 23
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 24
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 25
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 26
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 27
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 28
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 29
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 30
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 31
+S: (6, 3) (6, 9) isLanded: 0
+A: NARROWER
+O: (6, 4) (6, 8) isLanded = 0
+R: -0.125
+t = 32
+S: (6, 4) (6, 8) isLanded: 0
+A: WIDER
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.325
+t = 33
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 34
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 35
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 36
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 37
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 38
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 39
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 40
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 41
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 42
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 43
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 44
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 45
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 46
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 47
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 48
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+t = 49
+S: (6, 3) (6, 9) isLanded: 0
+A: REARRANGE
+O: (6, 3) (6, 9) isLanded = 0
+R: -0.125
+Final State: (6, 3) (6, 9) isLanded: 0
