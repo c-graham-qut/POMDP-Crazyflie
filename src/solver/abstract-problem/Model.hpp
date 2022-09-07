@@ -151,6 +151,20 @@ public:
             Action const &action
             ) = 0;
 
+    /** Generates a full StepResult from the measurements, including the next state, an observation, and the reward,
+     * as well as any transition parameters used.
+     *
+     * For convenience, the action taken is also included in the result, as well as a flag for
+     * whether or not the resulting next state is terminal.
+     */
+    virtual StepResult generateRealStep(
+            State const &state,
+            Action const &action
+            ) = 0;
+
+
+
+
     /** Generates the parameters for a next-state transition, if any are being used.
      *
      * This method is optional - the default implementation simply returns nullptr.
@@ -193,7 +207,7 @@ public:
             State const &state,
             Action const &action,
             TransitionParameters const *transitionParameters, // optional
-            State const *nextState // optional
+            State const &nextState // optional
             );
 
 
@@ -209,7 +223,7 @@ public:
      * generateNextState(), generateObservation(), and generateReward().
      */
     virtual void applyChanges(std::vector<std::unique_ptr<ModelChange>> const &changes,
-            Solver *solver);
+            Solver *solver, bool print);
 
 
     /* ------------ Methods for handling particle depletion -------------- */
