@@ -3,7 +3,7 @@
 ## Requirements
 ### Software
 1. Operating System -> Ubuntu v20.04
-2. Bitcraze Crazyflie Python Libraries and Repositories -> download [here]([https://github.com/RDLLab/tapir](https://github.com/bitcraze/crazyflie-lib-python/blob/master/docs/installation/install.md)
+2. Bitcraze Crazyflie Python Libraries and Repositories -> download [here]([https://github.com/RDLLab/tapir](https://github.com/bitcraze/crazyflie-lib-python/blob/master/docs/installation/install.md))
 
 ### Hardware
 1. Laptop or Desktop
