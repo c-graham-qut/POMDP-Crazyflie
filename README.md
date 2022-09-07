@@ -1,5 +1,16 @@
 # Implementation of POMDP using Bitcraze Crazyflie Drones
 
+## Requirements
+### Software
+1. Operating System -> Ubuntu v20.04
+2. Bitcraze Crazyflie Python Libraries and Repositories -> download [here]([https://github.com/RDLLab/tapir](https://github.com/bitcraze/crazyflie-lib-python/blob/master/docs/installation/install.md)
+
+### Hardware
+1. Laptop or Desktop
+2. Bitcraze Crazyflie Drones v2.1
+3. Bitcraze CrazyRadio Dongle
+4. 
+
 ## Software Toolkit
 For more information on the POMDP model used please visit -> [TAPIR POMDP - Master](https://github.com/RDLLab/tapir)
 
@@ -15,3 +26,7 @@ TAPIR [1] is a C++ implementation of the Adaptive Belief Tree (ABT) algorithm [2
 For the latest news, please visit the TAPIR website.
 
 ## Toolkit Implementation
+
+### Installation
+Download the entire repository into a folder of your choise.
+Open a 
