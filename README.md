@@ -3,13 +3,12 @@
 ## Requirements
 ### Software
 1. Operating System -> Ubuntu v20.04
-2. Bitcraze Crazyflie Python Libraries and Repositories -> download [here](https://github.com/bitcraze/crazyflie-lib-python/blob/master/docs/installation/install.md)
 
 ### Hardware
 1. Laptop or Desktop
 2. [Bitcraze Crazyflie Drones v2.1](https://store.bitcraze.io/products/crazyflie-2-1)
-3. [Bitcraze CrazyRadio Dongle](https://store.bitcraze.io/collections/accessories/products/crazyradio-pa)
-4. [Infrared Positioning Systems](https://store.bitcraze.io/collections/positioning/products/lighthouse-v2-base-station)
+4. [Bitcraze CrazyRadio Dongle](https://store.bitcraze.io/collections/accessories/products/crazyradio-pa)
+5. [Infrared Positioning Systems](https://store.bitcraze.io/collections/positioning/products/lighthouse-v2-base-station)
 
 ## Software Toolkit
 For more information on the POMDP model used please visit -> [TAPIR POMDP - Master](https://github.com/RDLLab/tapir)
