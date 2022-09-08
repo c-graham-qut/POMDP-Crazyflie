@@ -1,19 +1,27 @@
 #!/bin/bash
-sudo add-apt-repository ppa:ubunutu-toolchain-r/test
-sudo apt-get update
+echo  
+echo Installing Python
+echo 
 sudo apt-get install python3
-sudo apt install git python3-pip libxcb-xinerama0
-sudo pip3 install --upgrade pip
+echo  
+echo Installing Python-Pip
+echo 
+sudo apt-get install python3-pip
 sudo pip3 install pynput
 sudo pip3 install keyboard
 sudo pip3 install numpy
-sudo pip3 install cflib
+echo  
+echo Installing Spatial Index Components
+echo  
 cp -avr $(pwd)/Spatial-Index-Components/include/spatialindex /usr/include
 rsync -a $(pwd)/Spatial-Index-Components/lib/ /usr/lib
+echo Making Files
+echo  
 sudo make all
-sudo git clone https://github.com/bitcraze/crazyflie-clients-python
-sudo cd crazyflie-clients-python
-sudo cd
+echo  
+echo Setting xAuthority
+echo  
 xhost +si:localuser:root
-sudo pip3 install -e .
-
+echo ------------------------
+echo Installation Complete
+echo ------------------------
