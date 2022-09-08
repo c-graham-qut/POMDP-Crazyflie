@@ -35,8 +35,10 @@ The files that were modified include:
 For this project a different POMDP Problem Definition was created to test and demonstrate the Crazyflie Drones. The problem definition can be described as the following: 
 
 ## Toolkit Implementation
+The toolkit requries some set-up in order for the drones to function appropriately. The implementation methodlogy is split into two main sections; software and hardware. The software implementation goes through all necessary steps to install the correct libraries, depndencies and configures your ground control station with the appropriate authorisations.
 
-### Installation
+
+### Software
 The following procedure will demonstrate how to install this software toolkit.
 #### Step 1 - Install Ubuntu v20.04
 
@@ -102,7 +104,7 @@ Install [cflib and cfclient](https://github.com/bitcraze/crazyflie-clients-pytho
 ###### Install Radio Dongle Support Software
 Install [CrazyRadio Support Software](https://github.com/bitcraze/crazyradio-firmware)
 
-#### Step 4 - Set-Up Hardware
+### Hardware 
 
 #### Laptop or Desktop
 
