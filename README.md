@@ -38,14 +38,21 @@ The following procedure will demonstrate how to install this software toolkit.
 #### Step 2 - Open a new terminal window.
 #### Step 3 - Navigate to the repository location.
 #### Step 4 - Initiate the run file:
-The 'run.sh' file downloads the necessary repositories for the POMDP TAPIR toolkit and the Bitcraze Crazyflies. The file includes the following commands: 
+The 'run.sh' file downloads the necessary repositories for the POMDP TAPIR toolkit and the Bitcraze Crazyflies. 
 
-Run the following code in the open terminal:
+First you will have to initiate the run file. Run the following code in the open terminal:
 ```
-./run
+sudo chmod +x run.sh
+```
+
+Then, run the following code in the open terminal:
+```
+./run.sh
 ```
 
 ##### Run File Contents
+The file includes the following commands: 
+
 The code below downloads the repositories for the Bitcraze Crazyflie Client
 ```
 sudo add-apt-repository ppa:ubunutu-toolchain-r/test
@@ -85,8 +92,15 @@ sudo cd
 xhost +si:localuser:root
 ```
 
+#### Step 5 - Wait for the installation to complete
+The installation of the toolkits, repositories and compilation will take a few minutes. 
 
-
+Once it is complete the following should be seen in the terminal window:
+```
+---------------------
+Installation Complete
+---------------------
+```
 
 ## General Information
 
