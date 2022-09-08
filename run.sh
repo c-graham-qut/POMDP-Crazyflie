@@ -13,8 +13,8 @@ sudo pip3 install numpy
 echo  
 echo Installing Spatial Index Components
 echo  
-cp -avr $(pwd)/Spatial-Index-Components/include/spatialindex /usr/include
-rsync -a $(pwd)/Spatial-Index-Components/lib/ /usr/lib
+sudo cp -avr $(pwd)/Spatial-Index-Components/include/spatialindex /usr/include
+sudo rsync -a $(pwd)/Spatial-Index-Components/lib/ /usr/lib
 echo 
 echo Making Files
 echo  
