@@ -61,16 +61,12 @@ sudo apt-get update
 The code below downloads and installs python, pip, pynput, keyboard and numpy repositories.
 ```
 sudo apt-get install python3
-sudo apt install git python3-pip libxcb-xinerama0
-sudo pip3 install --upgrade pip
+sudo apt-get install python3-pip
 sudo pip3 install pynput
 sudo pip3 install keyboard
 sudo pip3 install numpy
 ```
-The code below downloads and installs the Crazyflie Library
-```
-sudo pip3 install cflib
-```
+
 The code below distributes specific binary, header and C++ files for the POMDP TAPIR Toolkit
 ```
 cp -avr $(pwd)/Spatial-Index-Components/include/spatialindex /usr/include
@@ -80,15 +76,9 @@ The code below initiates the 'make' file and starts to generate the necessary bi
 ```
 sudo make all
 ```
-The code below installs the Crazyflie Client
-```
-sudo git clone https://github.com/bitcraze/crazyflie-clients-python
-sudo cd crazyflie-clients-python
-sudo pip3 install -e .
-```
+
 The code below sets XAuthority for all users on the device in order to connect to the display (:0).
 ```
-sudo cd
 xhost +si:localuser:root
 ```
 
@@ -101,6 +91,21 @@ Once it is complete the following should be seen in the terminal window:
 Installation Complete
 ---------------------
 ```
+
+### Step 6 - Install Bitcraze Crazyflie Information
+
+The code below downloads and installs the Crazyflie Library
+```
+sudo pip3 install cflib
+```
+
+The code below installs the Crazyflie Client
+```
+sudo git clone https://github.com/bitcraze/crazyflie-clients-python
+sudo cd crazyflie-clients-python
+sudo pip3 install -e .
+```
+
 
 ### Hardware Set-Up
 
