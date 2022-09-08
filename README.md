@@ -36,7 +36,7 @@ sudo chmod +x run.sh
 
 Then, run the following code in the open terminal:
 ```
-./run.sh
+sudo ./run.sh
 ```
 
 ###### Run File Contents
