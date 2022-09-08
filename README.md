@@ -3,7 +3,9 @@ This repository is set up to develop the necessary software to implement a POMDP
 
 This repository is meant for complete beginners in order for future students to focus on researching POMDP problem definitions without having to have extensive knowledge of linux, git or coding. 
 
-This 'readme.md' document only explains how to install this softare toolkit. Please navigate to the [wiki](https://github.com/c-graham-qut/POMDP-Crazyflie/wiki) for more information about this project.
+This 'readme.md' document only explains how to install this softare toolkit. 
+
+Please navigate to the [wiki](https://github.com/c-graham-qut/POMDP-Crazyflie/wiki) for more information about this project.
 
 ## Installation
 The implementation methodlogy is split into two main sections; software and hardware. The software implementation goes through all necessary steps to install the correct libraries, depndencies and configures your ground control station with the appropriate authorisations. 
@@ -15,19 +17,14 @@ The following procedure will demonstrate how to install this software toolkit.
 The operating system for your laptop or dekstop must be Ubuntu v20.04. No other Ubuntu version has been tested with this software toolkit. 
 
 - Download Ubuntu v20.04 -> [here](http://www.releases.ubuntu.com/20.04)
-
 - Create a bootable USB device. This project used [Rufus](https://rufus.ie/en/) to create the bootable media device. To create the bootable media device, this project used [How-To Geek: Create Bootable USB Device](https://www.howtogeek.com/howto/linux/create-a-bootable-ubuntu-usb-flash-drive-the-easy-way/) for this process.
-
 - Boot your computer from the USB Drive. You will have to restart your computer, with the bootable media device inserted, and access your computers boot menu. From this boot menu you will be able to select the bootable media device to install the linux distribution. Note: you will have to find the appropriate methodology for your current operating system (Windows, Linux or Mac) as this process can vary.
-
 
 #### Step 2 - Download POMDP-Crazyflie Software Toolkit
 This step will detail the steps to install this software toolkit only. Some steps reference Bitcraze 
-
-##### Open a new terminal window.
-
-
-##### Navigate to the repository location.
+- Download this toolkit as a zip file. 
+- Extract the zip file in a location of your choice.
+- Open a new terminal window within the extracted folder. Right-Click within the folder and select 'Open in Terminal'. 
 
 ##### Initiate the run file:
 The 'run.sh' file downloads the necessary repositories for the POMDP TAPIR toolkit and the Bitcraze Crazyflies. 
