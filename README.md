@@ -6,6 +6,7 @@ This repository is set up to develop the necessary software to implement a POMDP
 1. Ubuntu v20.04
 2. TAPIR Toolkit and Dependancies
 3. Bitcraze Crazyflie Client and Libraries
+4. Bitcraze Crazyflie v2.1 - Firmware Pack XXXX
 
 ### Hardware
 1. Laptop or Desktop (Running Ubuntu v20.04
@@ -90,19 +91,11 @@ Installation Complete
 ---------------------
 ```
 
-### Step 6 - Install Bitcraze Crazyflie Client and Libraries
+#### Step 6 - Install Bitcraze Crazyflie Client and Libraries
+Using the same open terminal you will download the necessary libaries and files for the Bitcraze Crazyflie Client and Libraries.
 
-The code below downloads and installs the Crazyflie Library
-```
-sudo pip3 install cflib
-```
-
-The code below installs the Crazyflie Client
-```
-sudo git clone https://github.com/bitcraze/crazyflie-clients-python
-sudo cd crazyflie-clients-python
-sudo pip3 install -e .
-```
+6.1 Install [cflib and cfclient](https://github.com/bitcraze/crazyflie-clients-python/blob/master/docs/installation/install.md)
+6.2 Install [CrazyRadio Support Software]()
 
 
 ### Hardware Set-Up
@@ -110,6 +103,11 @@ sudo pip3 install -e .
 #### Laptop or Desktop
 
 #### Bitcraze
+##### Crazyflie v2.1
+
+##### Lighthouse Positioning Sensors
+
+##### 
 
 ## General Information
 
