@@ -94,9 +94,11 @@ Installation Complete
 #### Step 6 - Install Bitcraze Crazyflie Client and Libraries
 Using the same open terminal you will download the necessary libaries and files for the Bitcraze Crazyflie Client and Libraries.
 
-6.1 Install [cflib and cfclient](https://github.com/bitcraze/crazyflie-clients-python/blob/master/docs/installation/install.md)
-6.2 Install [CrazyRadio Support Software]()
+##### Install Client and Libraries
+Install [cflib and cfclient](https://github.com/bitcraze/crazyflie-clients-python/blob/master/docs/installation/install.md)
 
+##### Install Radio Dongle Support Software
+Install [CrazyRadio Support Software](https://github.com/bitcraze/crazyradio-firmware)
 
 ### Hardware Set-Up
 
