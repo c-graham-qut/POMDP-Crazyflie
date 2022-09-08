@@ -20,26 +20,6 @@ This repository is meant for complete beginners in order for future students to 
 5. [Infrared Positioning Systems](https://store.bitcraze.io/collections/positioning/products/lighthouse-v2-base-station)
 6. [Lighhouse Basestation Stands](https://www.amazon.com.au/Selens-Adjustable-Aluminium-Stands-Carrying/dp/B01N7QR332/ref=d_pd_sim_sccl_2_5/356-0311129-5408244?pd_rd_w=64CKI&content-id=amzn1.sym.128b624f-6806-46cb-b7e9-12435bd6f216&pf_rd_p=128b624f-6806-46cb-b7e9-12435bd6f216&pf_rd_r=FQKJ0ASHG5JY35GA7B5P&pd_rd_wg=FtWAi&pd_rd_r=696c03ca-82fc-4803-bb4e-034f009a768d&pd_rd_i=B01N7QR332&psc=1)
 
-
---------------------------------------------------------------------------
-## Overview
-
-This toolkit is being used as it provides a framework that can be integrated with the Bitcraze Crazyflie drones. 
-
-### TAPIR Software Toolkit
-For more information on the POMDP model used please visit -> [TAPIR POMDP - Master](https://github.com/RDLLab/tapir)
-
-### Software Modifications
-Modifications were made to the TAPIR Software Toolkit in order to integrate the POMDP problem definition with the Crazyflie Drones. These modifications were made by Marc Schneider for his masters report titled 'XXX'.
-
-The files that were modified include: 
-
-
-
-### POMDP Problem Definition
-For this project a different POMDP Problem Definition was created to test and demonstrate the Crazyflie Drones. The problem definition can be described as the following: 
-
---------------------------------------------------------------------------
 ## Toolkit Implementation
 
 The toolkit requries some set-up in order for the drones to function appropriately. The implementation methodlogy is split into two main sections; software and hardware. The software implementation goes through all necessary steps to install the correct libraries, depndencies and configures your ground control station with the appropriate authorisations.
@@ -120,7 +100,6 @@ Install [CrazyRadio Support Software](https://github.com/bitcraze/crazyradio-fir
 
 ##### Lighthouse Positioning Sensors
 
---------------------------------------------------------------------------
 ## Area of Operation - Where can I fly these drones?
 
 Depending on the institution, country or local safety regulations and laws it is advised that you maintain a strict level of risk reduction when operating drones autonomously. Even though the drones for this project are small they could potential cause serious harm to a human or damage critical equipment. Therefore, the following information about the Area of Operations (AoP) is only a guide and should be modified for your environment.
