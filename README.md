@@ -113,12 +113,11 @@ Install [CrazyRadio Support Software](https://github.com/bitcraze/crazyradio-fir
 
 ##### Lighthouse Positioning Sensors
 
-##### 
+## Area of Operation - Where can I fly these drones?
+Depending on the institution, country or local safety regulations and laws it is advised that you maintain a strict level of risk reduction when operating drones autonomously. Even though the drones for this project are small they could potential cause serious harm to a human or damage critical equipment. Therefore, the following information about the Area of Operations (AoP) is only a guide and should be modified for your environment.
 
-## General Information
+The lighthouse positioning systems have a 5 metre capture area. Therefore, the maximum size of the AoP is a 5x5 metre square. 
 
-### Communication 
-The Crazyflie radio dongles operate within the frequency bandwidth XX-XX
 
-The infrared sensors operate within the frequency bandwidth XX-XX
 
+# Risk Assessment
