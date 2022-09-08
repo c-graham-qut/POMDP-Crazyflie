@@ -23,15 +23,14 @@ This toolkit is being used as it provides a framework that can be integrated wit
 For more information on the POMDP model used please visit -> [TAPIR POMDP - Master](https://github.com/RDLLab/tapir)
 
 ### Software Modifications
-In order for the TAPIR POMDP toolkit to be implemented with the Crazyflie drones, modifications to some of the files was necessary to integrate the observations and movements. 
+Modifications were made to the TAPIR Software Toolkit in order to integrate the POMDP problem definition with the Crazyflie Drones. These modifications were made by Marc Schneider for his masters report titled 'XXX'.
 
-These modifications were made by Marc Schneider for his masters report titled 'XXX'.
+The files that were modified include: 
 
-The files that were modification include:
+
 
 ### POMDP Problem Definition
-For this project the POMDP Problem Definition is illustrated in the image below: 
-
+For this project a different POMDP Problem Definition was created to test and demonstrate the Crazyflie Drones. The problem definition can be described as the following: 
 
 ## Toolkit Implementation
 
