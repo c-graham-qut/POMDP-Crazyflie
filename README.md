@@ -5,7 +5,6 @@ This repository is meant for complete beginners in order for future students to 
 
 --------------------------------------------------------------------------
 ## Requirements
---------------------------------------------------------------------------
 
 ### Software
 1. [Ubuntu v20.04](http://www.releases.ubuntu.com/20.04)
@@ -24,7 +23,6 @@ This repository is meant for complete beginners in order for future students to 
 
 --------------------------------------------------------------------------
 ## Overview
---------------------------------------------------------------------------
 
 This toolkit is being used as it provides a framework that can be integrated with the Bitcraze Crazyflie drones. 
 
@@ -43,7 +41,6 @@ For this project a different POMDP Problem Definition was created to test and de
 
 --------------------------------------------------------------------------
 ## Toolkit Implementation
---------------------------------------------------------------------------
 
 The toolkit requries some set-up in order for the drones to function appropriately. The implementation methodlogy is split into two main sections; software and hardware. The software implementation goes through all necessary steps to install the correct libraries, depndencies and configures your ground control station with the appropriate authorisations.
 
@@ -125,7 +122,6 @@ Install [CrazyRadio Support Software](https://github.com/bitcraze/crazyradio-fir
 
 --------------------------------------------------------------------------
 ## Area of Operation - Where can I fly these drones?
---------------------------------------------------------------------------
 
 Depending on the institution, country or local safety regulations and laws it is advised that you maintain a strict level of risk reduction when operating drones autonomously. Even though the drones for this project are small they could potential cause serious harm to a human or damage critical equipment. Therefore, the following information about the Area of Operations (AoP) is only a guide and should be modified for your environment.
 
@@ -133,4 +129,4 @@ The lighthouse positioning systems have a 5 metre capture area. Therefore, the m
 
 --------------------------------------------------------------------------
 ## Risk Assessment
---------------------------------------------------------------------------
+
