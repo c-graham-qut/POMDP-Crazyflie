@@ -613,7 +613,7 @@ if __name__ == '__main__': #basically handles the two parallel processes which i
     
     # build C++ program
     subprocess.run(["make", "-j8"])
-    subprocess.run(["./solve"])
+    subprocess.run(["sudo","./solve"])
 
     # sets all the important variables
     break_program, come_home, hover_height, MIN_DISTANCE, MAX_HEIGHT, grid_distance, big_delta, critical_dist, wait_time, \
