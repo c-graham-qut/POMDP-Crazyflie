@@ -24,7 +24,8 @@ The operating system for your laptop or dekstop must be Ubuntu v20.04. No other 
 This step will detail the steps to install this software toolkit only. Some steps reference Bitcraze 
 - Download this toolkit as a zip file. 
 - Extract the zip file in a location of your choice.
-- Open a new terminal window within the extracted folder. Right-Click within the folder and select 'Open in Terminal'. 
+- Open a new terminal window within the extracted folder. Right-Click within the folder and select 'Open in Terminal'.
+- Initiate run file.
 
 ##### Initiate the run file:
 The 'run.sh' file downloads the necessary repositories for the POMDP TAPIR toolkit and the Bitcraze Crazyflies. 
