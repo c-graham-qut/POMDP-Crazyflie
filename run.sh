@@ -15,6 +15,7 @@ echo Installing Spatial Index Components
 echo  
 cp -avr $(pwd)/Spatial-Index-Components/include/spatialindex /usr/include
 rsync -a $(pwd)/Spatial-Index-Components/lib/ /usr/lib
+echo 
 echo Making Files
 echo  
 sudo make all
