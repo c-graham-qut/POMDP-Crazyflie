@@ -36,11 +36,12 @@ For this project a different POMDP Problem Definition was created to test and de
 
 ### Installation
 The following procedure will demonstrate how to install this software toolkit.
+#### Step 1 - Install Ubuntu v20.04
 
-#### Step 1 - Download the entire repository into a folder of your choise.
-#### Step 2 - Open a new terminal window.
-#### Step 3 - Navigate to the repository location.
-#### Step 4 - Initiate the run file:
+#### Step 2 - Download POMDP-Crazyflie Software Toolkit
+##### Step 2.1 - Open a new terminal window.
+##### Step 2.2 - Navigate to the repository location.
+##### Step 2.3 - Initiate the run file:
 The 'run.sh' file downloads the necessary repositories for the POMDP TAPIR toolkit and the Bitcraze Crazyflies. 
 
 First you will have to initiate the run file. Run the following code in the open terminal:
@@ -53,7 +54,7 @@ Then, run the following code in the open terminal:
 ./run.sh
 ```
 
-##### Run File Contents
+###### Run File Contents
 The file includes the following commands: 
 
 The code below downloads and installs python, pip, pynput, keyboard and numpy repositories.
@@ -80,7 +81,7 @@ The code below sets XAuthority for all users on the device in order to connect t
 xhost +si:localuser:root
 ```
 
-#### Step 5 - Wait for the installation to complete
+##### Step 2.4 - Wait for the installation to complete
 The installation of the toolkits, repositories and compilation will take a few minutes. 
 
 Once it is complete the following should be seen in the terminal window:
@@ -90,16 +91,16 @@ Installation Complete
 ---------------------
 ```
 
-#### Step 6 - Install Bitcraze Crazyflie Client and Libraries
+##### Step 3 - Install Bitcraze Crazyflie Client and Libraries
 Using the same open terminal you will download the necessary libaries and files for the Bitcraze Crazyflie Client and Libraries.
 
-##### Install Client and Libraries
+###### Install Client and Libraries
 Install [cflib and cfclient](https://github.com/bitcraze/crazyflie-clients-python/blob/master/docs/installation/install.md)
 
-##### Install Radio Dongle Support Software
+###### Install Radio Dongle Support Software
 Install [CrazyRadio Support Software](https://github.com/bitcraze/crazyradio-firmware)
 
-### Hardware Set-Up
+#### Step 4 - Set-Up Hardware
 
 #### Laptop or Desktop
 
