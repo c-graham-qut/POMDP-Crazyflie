@@ -53,11 +53,6 @@ Then, run the following code in the open terminal:
 ##### Run File Contents
 The file includes the following commands: 
 
-The code below downloads the repositories for the Bitcraze Crazyflie Client
-```
-sudo add-apt-repository ppa:ubunutu-toolchain-r/test
-sudo apt-get update
-```
 The code below downloads and installs python, pip, pynput, keyboard and numpy repositories.
 ```
 sudo apt-get install python3
