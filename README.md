@@ -3,10 +3,12 @@ This repository is set up to develop the necessary software to implement a POMDP
 
 ## Requirements
 ### Software
-1. Operating System -> Ubuntu v20.04
+1. Ubuntu v20.04
+2. TAPIR Toolkit and Dependancies
+3. Bitcraze Crazyflie Client and Libraries
 
 ### Hardware
-1. Laptop or Desktop
+1. Laptop or Desktop (Running Ubuntu v20.04
 2. [Bitcraze Crazyflie Drones v2.1](https://store.bitcraze.io/products/crazyflie-2-1)
 3. [Bitcraze Lighthouse Positioning Decks](https://www.bitcraze.io/products/lighthouse-positioning-deck)
 4. [Bitcraze CrazyRadio Dongle](https://store.bitcraze.io/collections/accessories/products/crazyradio-pa)
@@ -27,7 +29,7 @@ These modifications were made by Marc Schneider for his masters report titled 'X
 The files that were modification include:
 
 ### POMDP Problem Definition
-For this project
+For this project the POMDP Problem Definition is illustrated in the image below: 
 
 
 ## Toolkit Implementation
