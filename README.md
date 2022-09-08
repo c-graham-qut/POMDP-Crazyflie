@@ -102,6 +102,12 @@ Installation Complete
 ---------------------
 ```
 
+### Hardware Set-Up
+
+#### Laptop or Desktop
+
+#### Bitcraze
+
 ## General Information
 
 ### Communication 
