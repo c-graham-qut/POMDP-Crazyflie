@@ -7,6 +7,9 @@ This 'readme.md' document only explains how to install this softare toolkit.
 
 Please navigate to the [wiki](https://github.com/c-graham-qut/POMDP-Crazyflie/wiki) for more information about this project.
 
+This toolkit uses the [TAPIR POMDP software toolkit](https://github.com/RDLLab/tapir) created by D. Klimenko and J. Song and. H. Kurniawati.
+
+
 ## Installation
 The implementation methodlogy is split into two main sections; software and hardware. The software implementation goes through all necessary steps to install the correct libraries, depndencies and configures your ground control station with the appropriate authorisations. 
 
