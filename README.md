@@ -82,7 +82,7 @@ Installation Complete
 ---------------------
 ```
 
-##### Step 3 - Install Bitcraze Crazyflie Client and Libraries
+#### Step 3 - Install Bitcraze Crazyflie Client and Libraries
 Using the same open terminal you will download the necessary libaries and files for the Bitcraze Crazyflie Client and Libraries.
 
 - Install [cflib and cfclient](https://github.com/bitcraze/crazyflie-clients-python/blob/master/docs/installation/install.md)
