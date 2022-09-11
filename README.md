@@ -7,7 +7,9 @@ This 'readme.md' document only explains how to install this softare toolkit.
 
 Please navigate to the [wiki](https://github.com/c-graham-qut/POMDP-Crazyflie/wiki) for more information about this project.
 
-This toolkit uses the [TAPIR POMDP software toolkit](https://github.com/RDLLab/tapir) created by D. Klimenko and J. Song and. H. Kurniawati.
+This toolkit uses the [TAPIR POMDP software toolkit](https://github.com/RDLLab/tapir) created by D. Klimenko and J. Song and. H. Kurniawati. 
+
+The integration of the Bitcraze Crazyflies was created by Marc Schneider (2020) for his research paper 'XX'.
 
 
 ## Installation
