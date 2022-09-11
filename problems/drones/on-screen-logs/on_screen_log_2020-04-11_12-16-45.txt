@@ -1,0 +1,48 @@
+Seed: 1586600205
+InitialPositions = 
+Constructed the DronesModel
+Discount: 1
+Size: 6 by 9
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 1
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+terminate called after throwing an instance of 'Tools::IllegalArgumentException'
+Global seed: 1586600205
+
+Run #1
+PRNG engine state: 669501165
+InitialPositions = 
+Constructed the DronesModel
+Discount: 1
+Size: 6 by 9
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 1
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0 
+Loading policy... 
+terminate called after throwing an instance of 'Tools::IllegalArgumentException'

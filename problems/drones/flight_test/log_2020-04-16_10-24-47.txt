@@ -1,0 +1,204 @@
+python3: can't open file 'multidrone_flight_test': [Errno 2] No such file or directory
+Global seed: 1587025487
+
+Run #1
+PRNG engine state: 807308427
+InitialPositions = (8, 3) (8, 9) 
+Constructed the DronesModel
+Discount: 1
+Size: 10 by 13
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 5
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+Loading policy... 
+InitialPositions = (8, 3) (8, 9) 
+Constructed the DronesModel
+Discount: 1
+Size: 10 by 13
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 5
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+Running...
+
+
+t-0
+State: (8, 3) (8, 9) isLanded: 0
+Heuristic Value: 0
+Belief #0
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+...1.....2...
+.............
+43582 histories in 2000.03ms.
+Before:                                 After:                                  
+2.46015 from 48288 p. with 48288 starts.5.16797 from 91870 p. with 91870 starts.
+Action children:                        Action children:                        
+   +5.37:           FORWARD   33997        +6.94:           FORWARD   77579     
+   -4.34:         REARRANGE    7738        -4.34:         REARRANGE    7738     
+   -4.47:          NARROWER    4114        -4.47:          NARROWER    4114     
+   -4.80:             WIDER    1476        -4.80:             WIDER    1476     
+   -5.00:              LAND     963        -5.00:              LAND     963     
+                                                                                
+Action: FORWARD
+Transition: NULL
+Reward: -0.225
+Observation: (7, 3) (7, 9) isLanded = 0
+Discount: 1; Total Reward: 0
+
+
+t-1
+State: (7, 3) (7, 9) isLanded: 0
+Heuristic Value: 0
+Belief #3
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+...1.....2...
+.............
+.............
+51753 histories in 2000.05ms.
+Before:                                 After:                                  
+7.16875 from 77579 p. with 0 starts.    7.66488 from 129332 p. with 51753 starts.
+Action children:                        Action children:                        
+   +7.92:           FORWARD   72765        +8.12:           FORWARD  124518     
+   -3.99:         REARRANGE    2456        -3.99:         REARRANGE    2456     
+   -4.18:          NARROWER    1427        -4.18:          NARROWER    1427     
+   -4.63:             WIDER     586        -4.63:             WIDER     586     
+   -5.00:              LAND     344        -5.00:              LAND     344     
+                                                                                
+Action: FORWARD
+Transition: NULL
+Reward: -0.225
+Observation: (6, 3) (6, 9) isLanded = 0
+Discount: 1; Total Reward: -0.225
+
+
+t-2
+State: (6, 3) (6, 9) isLanded: 0
+Heuristic Value: 0
+Belief #23
+.............
+.............
+.............
+.............
+.............
+.............
+...1.....2...
+.............
+.............
+.............
+Model changing.
+Add Obstacles from (4, 3) to (4, 3)
+Changes complete
+Total of 1112.46 ms used for changes.
+57689 histories in 2000.05ms.
+Before:                                 After:                                  
+8.3485 from 124518 p. with 0 starts.    -4.91712 from 182207 p. with 182207 starts.
+Action children:                        Action children:                        
+   +8.52:           FORWARD  122794        -4.84:         REARRANGE   21887     
+   -3.59:         REARRANGE     762        -4.91:          NARROWER   12588     
+   -3.76:          NARROWER     572        -4.93:           FORWARD   11165     
+   -4.33:             WIDER     256        -5.00:              LAND    7547     
+   -5.00:              LAND     133        -5.11:             WIDER    4502     
+                                                                                
+Action: REARRANGE
+Transition: NULL
+Reward: -0.225
+Observation: (6, 3) (6, 9) isLanded = 0
+Discount: 1; Total Reward: -0.45
+Replenishing particles...          Done
+
+
+t-3
+State: (6, 3) (6, 9) isLanded: 0
+Heuristic Value: 0
+Belief #30509
+.............
+.............
+.............
+.............
+...X.........
+.............
+...1.....2...
+.............
+.............
+.............
+58340 histories in 2000.02ms.
+Before:                                 After:                                  
+0 from 5000 p. with 5000 starts.        3.97039 from 63340 p. with 63340 starts.
+Action children:                        Action children:                        
+                                           +6.79:           FORWARD   44450     
+                                           -5.00:              LAND    4700     
+                                           -5.00:         REARRANGE    4609     
+                                           -5.10:          NARROWER    3149     
+                                           -5.37:             WIDER    1432     
+                                                                                
+Action: FORWARD
+Transition: NULL
+Reward: -0.225
+Observation: (5, 3) (5, 9) isLanded = 0
+Discount: 1; Total Reward: -0.675
+
+
+t-4
+State: (5, 3) (5, 9) isLanded: 0
+Heuristic Value: 0
+Belief #30511
+.............
+.............
+.............
+.............
+...X.........
+...1.....2...
+.............
+.............
+.............
+.............
+Model changing.
+Add Obstacles from (3, 9) to (3, 9)
+Changes complete
+Total of 897.613 ms used for changes.

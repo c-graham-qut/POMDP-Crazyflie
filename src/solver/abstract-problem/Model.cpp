@@ -84,7 +84,7 @@ double Model::generateReward(
           State const &/*state*/,
           Action const &/*action*/,
           TransitionParameters const */*transitionParameters*/, // optional
-          State const */*nextState*/ // optional
+          State const &/*nextState*/ // optional
           ) {
     return 0;
 }
@@ -93,7 +93,7 @@ double Model::generateReward(
 /* -------------- Methods for handling model changes ---------------- */
 // Default = no changes.
 void Model::applyChanges(std::vector<std::unique_ptr<ModelChange>> const &/*changes*/,
-        Solver */*solver*/) {
+        Solver */*solver*/, bool print) {
 }
 
 

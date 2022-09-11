@@ -59,7 +59,6 @@ ChangeSequence TextSerializer::loadChangeSequence(
         if (line.empty()) {
             continue;
         }
-
         std::string tmpStr;
         long time;
         long nChanges;

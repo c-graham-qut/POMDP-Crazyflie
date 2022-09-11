@@ -93,7 +93,7 @@ bool DefaultHistoryCorrector::reviseSequence(HistorySequence *sequence) {
         if (changes::has_flags(entry->changeFlags_, ChangeFlags::REWARD)) {
             double oldReward = entry->immediateReward_;
             entry->immediateReward_ = getModel()->generateReward(*state,
-                    *entry->action_, entry->transitionParameters_.get(), nextEntry->getState());
+                    *entry->action_, entry->transitionParameters_.get(), *nextEntry->getState());
 
             // If we haven't diverged yet, we update the difference right now.
             if (divergingEntryId == -1 && entry->immediateReward_ != oldReward) {

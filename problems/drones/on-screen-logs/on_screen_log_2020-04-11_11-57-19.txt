@@ -1,0 +1,145 @@
+Seed: 1586599059
+InitialPositions = (8, 3) (8, 9) 
+Constructed the DronesModel
+Discount: 1
+Size: 10 by 13
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 5
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+257597 histories in 2000.06ms.
+Total solving time: 2000.09ms
+Saving to file...    Done.
+Global seed: 1586599067
+
+Run #1
+PRNG engine state: 1355588731
+InitialPositions = (8, 3) (8, 9) 
+Constructed the DronesModel
+Discount: 1
+Size: 10 by 13
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 5
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+Loading policy... 
+InitialPositions = (8, 3) (8, 9) 
+Constructed the DronesModel
+Discount: 1
+Size: 10 by 13
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 5
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+Running...
+
+
+t-0
+State: (8, 3) (8, 9) isLanded: 0
+Heuristic Value: 0
+Belief #0
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+...1.....2...
+.............
+306778 histories in 2000.01ms.
+Before:                                 After:                                  
+-5.03228 from 257597 p. with 257597 starts.-5.01697 from 564375 p. with 564375 starts.
+Action children:                        Action children:                        
+   -5.00:              LAND  236450        -5.00:              LAND  540014     
+   -5.26:         REARRANGE   10725        -5.28:         REARRANGE   12038     
+   -5.38:           FORWARD    6399        -5.39:           FORWARD    7429     
+   -5.65:             WIDER    2728        -5.56:             WIDER    3599     
+   -5.97:          NARROWER    1295        -5.97:          NARROWER    1295     
+                                                                                
+Reached a terminal state!
+Action: LAND
+Transition: NULL
+Reward: -5
+Observation: (8, 3) (8, 9) isLanded = 1
+Discount: 1; Total Reward: 0
+
+
+Final State:
+(8, 3) (8, 9) isLanded: 1
+Belief #5
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+...1.....2...
+.............
+Total discounted reward: -5
+# of steps: 1
+Time spent on changes: 0ms
+Time spent on policy updates: 2000.05ms
+Time spent replenishing particles: 0.001ms
+Time spent pruning: 0ms
+Total time taken: 2021.34ms
+Run complete!
+
+Final State: (8, 3) (8, 9) isLanded: 1
+1 runs completed.
+Mean reward: -5
+Mean number of steps: 1
+Mean time taken to improve policy: 2000.05ms
+Mean time to replenish particles: 0.001ms
+Mean time taken: 2021.34ms

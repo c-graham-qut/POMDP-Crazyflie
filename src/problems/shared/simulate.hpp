@@ -28,6 +28,8 @@
 #include "solver/Simulator.hpp"            // for Simulator
 #include "solver/Solver.hpp"            // for Solver
 
+#include "problems/drones/DronesState.hpp"
+
 #ifdef GOOGLE_PROFILER
 #include <google/profiler.h>
 #endif
@@ -80,6 +82,8 @@ int simulate(int argc, char const *argv[]) {
     double totalReward = 0;
     double totalTime = 0;
     double totalNSteps = 0;
+    double totalReplenishingTime = 0;
+    double totalImprovementTime = 0;
 
 #ifdef GOOGLE_PROFILER
     ProfilerStart("simulate.prof");
@@ -102,6 +106,9 @@ int simulate(int argc, char const *argv[]) {
                 std::make_unique<OptionsType>(options));;
         solver::Solver solver(std::move(solverModel));
 
+        if (!options.baseConfigPath.empty()) {
+            tapir::change_directory(workingDir);
+        }
         if (options.loadInitialPolicy) {
             cout << "Loading policy... " << endl;
             std::ifstream inFile;
@@ -115,8 +122,11 @@ int simulate(int argc, char const *argv[]) {
             solver.getSerializer()->load(inFile);
             inFile.close();
         } else {
-        	cout << "Starting from empty policy. " << endl;
-        	solver.initializeEmpty();
+            cout << "Starting from empty policy. " << endl;
+            solver.initializeEmpty();
+        }
+        if (!options.baseConfigPath.empty()) {
+            tapir::change_directory(options.baseConfigPath);
         }
 
         std::unique_ptr<ModelType> simulatorModel = std::make_unique<ModelType>(&randGen,
@@ -134,12 +144,22 @@ int simulate(int argc, char const *argv[]) {
 
         double tStart = tapir::clock_ms();
         double reward = simulator.runSimulation();
+        // while (simulator.stepSimulation()) {
+        //     if (options.hasChanges) {
+        //         simulator.loadChangeSequence(options.changesPath);
+        //         cout << "loaded changes " << endl;
+        //     }
+
+        // }
         double totT = tapir::clock_ms() - tStart;
         long actualNSteps = simulator.getStepCount();
 
         totalReward += reward;
         totalTime += totT;
         totalNSteps += actualNSteps;
+        totalImprovementTime += simulator.getTotalImprovementTime();
+        totalReplenishingTime += simulator.getTotalReplenishingTime();
+
 
         os << "Run #" << runNumber+1 << endl;
         os << "Reward: " << reward << endl;
@@ -181,6 +201,7 @@ int simulate(int argc, char const *argv[]) {
             cout << "Finished saving." << endl;
         }
         cout << "Run complete!" << endl << endl;
+        cout << "Final State: " << *sequence->getLastEntry()->getState() << endl;
     }
 
 #ifdef GOOGLE_PROFILER
@@ -192,8 +213,9 @@ int simulate(int argc, char const *argv[]) {
     cout << options.nRuns << " runs completed." << endl;
     cout << "Mean reward: " << totalReward / options.nRuns << endl;
     cout << "Mean number of steps: " << totalNSteps / options.nRuns << endl;
+    cout << "Mean time taken to improve policy: " << totalImprovementTime / options.nRuns << "ms" << endl;
+    cout << "Mean time to replenish particles: " << totalReplenishingTime / options.nRuns << "ms" << endl;
     cout << "Mean time taken: " << totalTime / options.nRuns << "ms" << endl;
-    cout << "Mean time per step: " << totalTime / totalNSteps << "ms" << endl;
     return 0;
 }
 

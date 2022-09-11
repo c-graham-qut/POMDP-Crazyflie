@@ -1,4 +1,4 @@
-REDIRECT =
+REDIRECT = tag
 .PHONY: $(MAKECMDGOALS) call-upwards
 $(MAKECMDGOALS): call-upwards ;
 call-upwards:
