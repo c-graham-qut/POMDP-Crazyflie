@@ -11,6 +11,7 @@ sudo pip3 install pynput
 sudo pip3 install keyboard
 sudo pip3 install numpy
 sudo pip3 install getch
+sudo pip3 install cflib
 echo  
 echo Installing Spatial Index Components
 echo  
