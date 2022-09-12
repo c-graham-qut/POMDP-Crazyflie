@@ -88,4 +88,15 @@ Using the same open terminal you will download the necessary libaries and files 
 - Install [CrazyRadio Support Software](https://github.com/bitcraze/crazyradio-firmware)
 
 
+## Run
+### Single Drone
+To run this toolkit for a single drone, make sure you have appropriatley set up your drone environment as stated within the [wiki](https://github.com/c-graham-qut/POMDP-Crazyflie/wiki/Software). Then when you are ready to fly initiate the following command: 
+```
+sudo ./sdf.sh
+```
+### Multiple Drones
+To run this toolkit for multiple drones, make sure you have appropriatley set up your drone environment as stated within the [wiki](https://github.com/c-graham-qut/POMDP-Crazyflie/wiki/Software). Then when you are ready to fly initiate the following command: 
+```
+sudo ./mdf.sh
+```
 
