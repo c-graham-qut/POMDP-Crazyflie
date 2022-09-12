@@ -25,6 +25,8 @@ echo
 echo Setting xAuthority
 echo  
 xhost +si:localuser:root
+echo  
 echo ------------------------
 echo Installation Complete
 echo ------------------------
+echo  
