@@ -53,6 +53,8 @@ namespace drones {
         GridPosition grid;
     };
     pos current;
+    std::string waypoints;
+
 
     bool sortByInt(const pos &lhs, const pos &rhs) { return lhs.swarmmember < rhs.swarmmember; }
 
@@ -139,7 +141,11 @@ void DronesModel::initialize() {
             DronesCellType cellType;
             if (c == 'X') {
                 cellType = DronesCellType::WALL;
-            } else {
+            } 
+            else if (c == 'O') {
+                cellType = DronesCellType::OBJECTIVE;
+            }
+            else {
                 cellType = DronesCellType::EMPTY;
             }
             envMap_[p.i][p.j] = cellType;
@@ -279,7 +285,7 @@ std::pair<SwarmVec, bool>  DronesModel::getMovedSwarmPos(SwarmVec const &swarmPo
 
     for (unsigned int iter = 0; iter < swarmPos.size(); iter++)
     {   
-
+        // This Function changes the coloumns of the grid to change orientation of the drones. 
         switch (action) {
             case ActionType::WIDER:         // make formation wider
                 if (swarmPos.at(iter).j > (nCols_-1)/2){
@@ -326,6 +332,38 @@ std::pair<SwarmVec, bool>  DronesModel::getMovedSwarmPos(SwarmVec const &swarmPo
             debug::show_message(message.str());
             break;
         } // switch
+
+
+        /* TO BE DEVELOPED */
+
+        /*swtich (action) {
+	        case ActionType::TRAVERSE:
+		        // Continue to navigate to the waypoint
+                
+		    break;
+	        case ActionType::AVOID:
+		        // For each drone that is about to collide with an object
+		        // 	Modify flying path for those drones that are colliding.
+		
+		        break;
+	        case ActionType::HOVER:
+		        // For each drone that is about to collide with an object
+		        //	Stop moving and hover in place.
+		        //
+		        // NOTE: This action type is seperate from how the drones actually maneavure - in the noraml flight function a drone can hover in order to re-orient in order to navigate the space if required.
+		            
+		        break;
+	        case ActionType::LAND:
+		        // For each drone that has completed the course
+		        //	Land in designated area
+                    
+		        break;
+	        default:
+		        std::ostringstream message;
+		        message << "Invalid action: " << (long) action;
+		        debug::show_message(message.str());
+		        break;
+        }*/
 
 
         loopValid = isValid(movedSwarmPos.at(iter));
@@ -758,6 +796,26 @@ void DronesModel::drawEnv(std::ostream &os) {
     }
 }
 
+void DronesModel::defineWaypoints() {
+    // Read Waypoints File
+    std::ifstream waypoints_file;
+    std::string str;
+    std::string file_contents;
+    waypoints_file.open("../../../problems/drones/maps/waypoints.txt");
+    if (waypoints_file == NULL) {
+        printf("can not open 'waypoints.txt' file.")
+    }
+    else (waypoints_file.is_open()) {
+        while (std::getline(file, str)) {
+            file_contents += str;
+            file_contents.push_back('\n')
+        }
+    }
+    waypoints_file.close();
+    waypoints << file_contents;
+
+}
+
 void DronesModel::drawSimulationState(solver::BeliefNode const *belief,
     solver::State const &state, std::ostream &os) {
     DronesState const &dronesState = static_cast<DronesState const &>(state);
@@ -767,6 +825,7 @@ void DronesModel::drawSimulationState(solver::BeliefNode const *belief,
     SwarmVec swarmpos;
     swarmpos = dronesState.getSwarmVecPosition();
     std::vector<int> colors { 196, 161, 126, 91, 56, 21, 26, 31, 36, 41, 46 };
+
     if (options_->hasColorOutput) {
         os << "Color map: ";
         for (int color : colors) {
@@ -791,27 +850,27 @@ void DronesModel::drawSimulationState(solver::BeliefNode const *belief,
             for (unsigned int iter = 0; iter < swarmpos.size(); iter++)
             {
                 if (pos == swarmpos.at(iter)){
-                 swarmmember = iter+1;
-             }
-         }    
+                    swarmmember = iter+1;
+                }
+            }    
 
-        if (swarmmember && envMap_[i][j] == DronesCellType::WALL) {
-            os << "@";
-        } else if (swarmmember) {
-            os << swarmmember;
-        } else {
-            if (envMap_[i][j] == DronesCellType::WALL) {
-                os << "X";
+            if (swarmmember && envMap_[i][j] == DronesCellType::WALL) {
+                os << "@";
+            } else if (swarmmember) {
+                os << swarmmember;
             } else {
-                os << ".";
+                if (envMap_[i][j] == DronesCellType::WALL) {
+                    os << "X";
+                } else {
+                    os << ".";
+                }
+            }
+            if (options_->hasColorOutput) {
+                os << "\033[0m";
             }
         }
-        if (options_->hasColorOutput) {
-            os << "\033[0m";
-        }
+        os << endl;
     }
-    os << endl;
-}
 }
 
 

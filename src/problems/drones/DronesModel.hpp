@@ -102,7 +102,9 @@ class DronesModel: public shared::ModelWithProgramOptions {
         /** An empty cell. */
         EMPTY = 0,
         /* A wall. */
-        WALL = -1
+        WALL = -1,
+        OBJECTIVE = 1
+
     };
 
     /******************** Added by Josh **************************/
@@ -200,6 +202,7 @@ class DronesModel: public shared::ModelWithProgramOptions {
     virtual void drawSimulationState(solver::BeliefNode const *belief,
             solver::State const &state,
             std::ostream &os) override;
+    virtual void defineWaypoints() override;
 
 
     /* ---------------------- Basic customizations  ---------------------- */
