@@ -1,3 +1,0 @@
-t 3 : 1
-Add Obstacles: (1, 0) (1, 1)
-

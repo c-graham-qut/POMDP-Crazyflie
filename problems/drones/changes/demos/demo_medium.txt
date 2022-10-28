@@ -1,3 +1,0 @@
-t 2 : 2 
-Add Obstacles: (4, 0) (4, 1)
-Add Obstacles: (4, 4) (4, 5)
