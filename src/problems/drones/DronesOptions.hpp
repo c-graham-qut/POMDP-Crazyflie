@@ -1,7 +1,7 @@
 /** @file DronesOptions.hpp
  *
  * Defines the DronesOptions class, which specifies the configuration settings available for the
- * Drones problem.
+ * Drones problem.y
  */
 #ifndef DRONESOPTIONS_HPP_
 #define DRONESOPTIONS_HPP_
@@ -18,12 +18,12 @@ struct DronesOptions : public shared::SharedOptions {
 
     /* -------- Settings specific to the Drones POMDP -------- */
     /** Path to the map file (relative to SharedOptions::baseConfigPath) */
-    std::string mapPath = "";
+    std::string mapPath = "../../../problems/drones/maps/map.txt";
     double measurement_uncertainty = 0.0;
     double longitudinal_movement_uncertainty = 0.0;
     double initialPositions = 0.0;
     double lateral_movement_uncertainty = 0.0;
-    double stepCost = 0.0;
+    double stepCost = 0;
     /** Path to vrep scene drones.ttt */
     std::string vrepScenePath = "";
 

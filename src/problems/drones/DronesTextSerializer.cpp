@@ -160,23 +160,23 @@ void DronesTextSerializer::saveAction(solver::Action const *action,
             static_cast<DronesAction const &>(*action);
     ActionType code = a.getActionType();
     switch (code) {
-    case ActionType::WIDER:
-        os << "WIDER";
+    case ActionType::NORTH:
+        os << "NORTH";
         break;
-    case ActionType::NARROWER:
-        os << "NARROWER";
+    case ActionType::SOUTH:
+        os << "SOUTH";
         break;
-    case ActionType::FORWARD:
-        os << "FORWARD";
+    case ActionType::EAST:
+        os << "EAST";
+        break;
+    case ActionType::WEST:
+        os << "WEST";
         break;
     case ActionType::LAND:
         os << "LAND";
         break;
     case ActionType::HOVER:
         os << "HOVER";
-        break;
-    case ActionType::REARRANGE:
-        os << "REARRANGE";
         break;
     default:
         os << "ERROR-" << static_cast<long>(code);
@@ -191,20 +191,18 @@ std::unique_ptr<solver::Action> DronesTextSerializer::loadAction(
     // std::cout << text << "until here loadAction" << std::endl;
     if (text == "NULL") {
         return nullptr;
-    } else if (text == "WIDER") {
-        return std::make_unique<DronesAction>(ActionType::WIDER);
-    // } else if (text == "EAST") {
-    //     return std::make_unique<DronesAction>(ActionType::EAST);
-    } else if (text == "NARROWER") {
-        return std::make_unique<DronesAction>(ActionType::NARROWER);
-    } else if (text == "FORWARD") {
-        return std::make_unique<DronesAction>(ActionType::FORWARD);
+    } else if (text == "NORTH") {
+        return std::make_unique<DronesAction>(ActionType::NORTH);
+    } else if (text == "SOUTH") {
+        return std::make_unique<DronesAction>(ActionType::SOUTH);
+    } else if (text == "EAST") {
+        return std::make_unique<DronesAction>(ActionType::EAST);
+    } else if (text == "WEST") {
+        return std::make_unique<DronesAction>(ActionType::WEST);
     } else if (text == "LAND") {
         return std::make_unique<DronesAction>(ActionType::LAND);
     } else if (text == "HOVER") {
         return std::make_unique<DronesAction>(ActionType::HOVER);
-    } else if (text == "REARRANGE") {
-        return std::make_unique<DronesAction>(ActionType::REARRANGE);
     } else {
         std::string tmpStr;
         std::istringstream sstr(text);

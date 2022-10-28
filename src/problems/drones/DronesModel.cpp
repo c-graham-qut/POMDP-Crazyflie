@@ -7,6 +7,9 @@
 #include <cmath>                        // for floor, pow
 #include <cstddef>                      // for size_t
 #include <cstdlib>                      // for exit
+#include <iostream>
+#include <cstring>
+#include <string>
 
 #include <memory>
 #include <fstream>                      // for ifstream, basic_istream, basic_istream<>::__istream_type
@@ -53,8 +56,8 @@ namespace drones {
         GridPosition grid;
     };
     pos current;
-    std::string waypoints;
 
+    //public int objective_position = new int[2];
 
     bool sortByInt(const pos &lhs, const pos &rhs) { return lhs.swarmmember < rhs.swarmmember; }
 
@@ -69,7 +72,7 @@ namespace drones {
             nCols_(0), // to be updated
             mapText_(), // will be pushed to
             envMap_(), // will be pushed to
-            nActions_(5), // if set to a lower number the last actions will not appear as possible actions
+            nActions_(6), // if set to a lower number the last actions will not appear as possible actions
             initialPositions_(){ // will be pushed to
 
 
@@ -83,6 +86,7 @@ namespace drones {
         std::exit(1);
     }
     inFile >> nRows_ >> nCols_;
+
     std::string line;
     std::vector<pos> v;
 
@@ -141,9 +145,6 @@ void DronesModel::initialize() {
             DronesCellType cellType;
             if (c == 'X') {
                 cellType = DronesCellType::WALL;
-            } 
-            else if (c == 'O') {
-                cellType = DronesCellType::OBJECTIVE;
             }
             else {
                 cellType = DronesCellType::EMPTY;
@@ -190,20 +191,31 @@ std::unique_ptr<solver::State> DronesModel::sampleStateUninformed() {
     return std::make_unique<DronesState>(swarmPos, isLanded);
 }
 
+
 bool DronesModel::isTerminal(solver::State const &state) {
     DronesState mystate = static_cast<DronesState const &>(state);
     SwarmVec swarmPos = mystate.getSwarmVecPosition();
     bool terminal = false;
     bool isLanded = mystate.getIsLanded();
     isLanded = mystate.getIsLanded();
-
+    int objective_position[2] = {4,4};
     // only if all swarm members arrive at the top isTerminal will be true
-    // for (unsigned int iter = 0; iter < swarmPos.size(); iter++){
-    //     if (swarmPos.at(iter).i != 0)
-    //     {
-    //         terminal = false;
-    //     }
-    // }
+     for (unsigned int iter = 0; iter < swarmPos.size(); iter++){
+         if (swarmPos.at(iter).i == objective_position[0] && swarmPos.at(iter).j == objective_position[1] )
+         {
+             //terminal = true;
+         }
+
+         if (swarmPos.at(iter).i == -1 || swarmPos.at(iter).j == -1)
+         {
+             terminal = true;
+         }
+
+         if (swarmPos.at(iter).i == 10+1 || swarmPos.at(iter).j == 13+1)
+         {
+             terminal = true;
+         }
+    }
 
     // if the POMDP chooses the action LAND then the isLanded will be changed to true which basically means the POMDP gave up
     // if (isLanded == true && unusedBool == true){
@@ -235,19 +247,20 @@ bool DronesModel::isValid(solver::State const &state) {
 }
 
 
+
 /* -------------------- Black box dynamics ---------------------- */
 std::pair<std::unique_ptr<DronesState>, bool> DronesModel::makeNextState(
     solver::State const &state, solver::Action const &action) {
 
     DronesState const &dronesState = static_cast<DronesState const &>(state);
     DronesAction const &dronesAction = static_cast<DronesAction const &>(action);
+
     SwarmVec swarmPos;
     swarmPos = dronesState.getSwarmVecPosition();
-    
     SwarmVec newSwarmPos;
+
     bool wasValid;
     bool isLanded = false;
-
 
     if (dronesAction.getActionType() == ActionType::LAND){
     	if (isLanded != true){
@@ -257,13 +270,16 @@ std::pair<std::unique_ptr<DronesState>, bool> DronesModel::makeNextState(
     	isLanded = false;
     }
     wasValid = false;
+
     std::tie(newSwarmPos, wasValid) = getMovedSwarmPos(swarmPos, dronesAction.getActionType());
+
     if (wasValid == false){
     }
     // cout << "newSwarmPos = " << newSwarmPos.at(0) << newSwarmPos.at(1) << "wasValid = " << wasValid << endl;
     return std::make_pair(std::make_unique<DronesState>(newSwarmPos, isLanded),
         wasValid);
 }
+
 
 
 // handles the movement of the swarm
@@ -274,96 +290,60 @@ std::pair<SwarmVec, bool>  DronesModel::getMovedSwarmPos(SwarmVec const &swarmPo
     // make all positions move right, but up/down depending on the actions (misuse North/South to control formation width)
     bool loopValid = true;
     bool wasValid = true;
-    int min_row = swarmPos.at(0).i;
 
-    // find swarm member with that is the closest to the goal
-    for (unsigned int iter = 0; iter < swarmPos.size(); iter++){
-        if (swarmPos.at(iter).i < min_row){
-            min_row = swarmPos.at(iter).i;
-        }
-    }
 
     for (unsigned int iter = 0; iter < swarmPos.size(); iter++)
-    {   
-        // This Function changes the coloumns of the grid to change orientation of the drones. 
+    {
         switch (action) {
-            case ActionType::WIDER:         // make formation wider
-                if (swarmPos.at(iter).j > (nCols_-1)/2){
-                    movedSwarmPos.at(iter).j += 1;
-                }
-                else if (swarmPos.at(iter).j < (nCols_-1)/2){
-                    movedSwarmPos.at(iter).j -= 1;
-                }
-                else{                       // swarm member is in the middle column
-                    movedSwarmPos.at(iter).j -= 0;
-                }
+            case ActionType::NORTH:         // make formation wider
+                
+                movedSwarmPos.at(iter).i -= 1;
+
+                                            // Get Current Drone Position
+                // Match with closest grid position
+                // Add that to the model
+                // 
+                // Decide Next Grid Space
+                //
 
                 break;
-        case ActionType::NARROWER:        // make formation narrower
-            if (swarmPos.at(iter).j < (nCols_-1)/2){
-                    movedSwarmPos.at(iter).j += 1;
-                }
-                else if (swarmPos.at(iter).j > (nCols_-1)/2){
-                    movedSwarmPos.at(iter).j -= 1;
-                }
-                else{                       // swarm member is in the middle column
-                    movedSwarmPos.at(iter).j -= 0;
-                }
+            case ActionType::SOUTH:        // make formation narrower
+                // Get curernt Drone Position
+                // Match with the grid
+                // Add that to the model 
 
-            break;
-        case ActionType::FORWARD:
-            movedSwarmPos.at(iter).i -= 1;
-            break;
-        case ActionType::LAND:
-        	// does not move the drones, but sets isLanded to true
-            break;
-        case ActionType::HOVER:
-            // do nothing
-            break;
-        case ActionType::REARRANGE:
-            // do nothing
-            if (swarmPos.at(iter).i > min_row){
-                movedSwarmPos.at(iter).i -= 1;
-            }
-            break;
+                movedSwarmPos.at(iter).i += 1;
+
+                break;
+            case ActionType::EAST:
+                // Get curernt Drone Position
+                // Match with the grid
+                // Add that to the model 
+
+                movedSwarmPos.at(iter).j += 1;
+
+                break;
+            case ActionType::WEST:
+                // Get curernt Drone Position
+                // Match with the grid
+                // Add that to the model 
+
+                movedSwarmPos.at(iter).j += 1;
+                break;
+            case ActionType::LAND:
+        	    // does not move the drones, but sets isLanded to true
+                break;
+            case ActionType::HOVER:
+                // does not move the drones, but sets isLanded to true
+                break;
+
+
         default:
             std::ostringstream message;
             message << "Invalid action: " << (long) action;
             debug::show_message(message.str());
             break;
         } // switch
-
-
-        /* TO BE DEVELOPED */
-
-        /*swtich (action) {
-	        case ActionType::TRAVERSE:
-		        // Continue to navigate to the waypoint
-                
-		    break;
-	        case ActionType::AVOID:
-		        // For each drone that is about to collide with an object
-		        // 	Modify flying path for those drones that are colliding.
-		
-		        break;
-	        case ActionType::HOVER:
-		        // For each drone that is about to collide with an object
-		        //	Stop moving and hover in place.
-		        //
-		        // NOTE: This action type is seperate from how the drones actually maneavure - in the noraml flight function a drone can hover in order to re-orient in order to navigate the space if required.
-		            
-		        break;
-	        case ActionType::LAND:
-		        // For each drone that has completed the course
-		        //	Land in designated area
-                    
-		        break;
-	        default:
-		        std::ostringstream message;
-		        message << "Invalid action: " << (long) action;
-		        debug::show_message(message.str());
-		        break;
-        }*/
 
 
         loopValid = isValid(movedSwarmPos.at(iter));
@@ -375,10 +355,8 @@ std::pair<SwarmVec, bool>  DronesModel::getMovedSwarmPos(SwarmVec const &swarmPo
 		// movedSwarmPos = swarmPos;
     }
 
-
-
-
 // UNCERTAINTY IN MOVEMENT
+
     SwarmVec uncertainSwarmPos;
 
     // int longitudinal_movement_uncertainty = 0;  // 5
@@ -398,23 +376,23 @@ std::pair<SwarmVec, bool>  DronesModel::getMovedSwarmPos(SwarmVec const &swarmPo
 
         // if (action != ActionType::LAND && action != ActionType::HOVER && action != ActionType::REARRANGE){
         // longitudinal uncertainty
-            if (rand_1 < longitudinal_movement_uncertainty_ && action == ActionType::FORWARD){
-                if (coin_toss_1 > 0){
-                    grid.i -= 1;
-                }else{
-                    grid.i += 1;
-                }
-            }
+            //if (rand_1 < longitudinal_movement_uncertainty_ && action == ActionType::NORTH){
+            //    if (coin_toss_1 > 0){
+            //        grid.i -= 1;
+            //    }else{
+            //        grid.i += 1;
+            //    }
+            //}
         // lateral uncertainty
-            if (action == ActionType::NARROWER || action == ActionType::WIDER){
-                if (rand_2 < lateral_movement_uncertainty_){
-                    if (coin_toss_2 > 0){
-                        grid.j -= 1;
-                    }else{
-                        grid.j += 1;
-                    }
-                }
-            }
+            //if (action == ActionType::EAST || action == ActionType::WEST){
+            //    if (rand_2 < lateral_movement_uncertainty_){
+            //        if (coin_toss_2 > 0){
+            //           grid.j -= 1;
+            //        }else{
+            //            grid.j += 1;
+            //        }
+            //    }
+            //}
         uncertainSwarmPos.push_back(grid);
     }
 
@@ -422,11 +400,11 @@ std::pair<SwarmVec, bool>  DronesModel::getMovedSwarmPos(SwarmVec const &swarmPo
 }
 
 
-
 bool DronesModel::isValid(GridPosition const &position) {
     return (position.i >= 0 && position.i < nRows_ && position.j >= 0
         && position.j < nCols_ && envMap_[position.i][position.j] != DronesCellType::WALL);
 }
+
 
 std::unique_ptr<solver::Observation> DronesModel::makeObservation(DronesState const &nextState) {
     SwarmVec swarmPos;
@@ -449,21 +427,21 @@ std::unique_ptr<solver::Observation> DronesModel::makeObservation(DronesState co
         grid = nextState.getSwarmVecPosition().at(iter);
         
         // longitudinal uncertainty
-        if (rand_1 < measurement_uncertainty_){
-            if (coin_toss_1 > 0){
-                grid.i -= 1;
-            }else{
-                grid.i += 1;
-            }
-        }
+        //if (rand_1 < measurement_uncertainty_){
+        //    if (coin_toss_1 > 0){
+        //        grid.i -= 1;
+        //    }else{
+        //        grid.i += 1;
+        //    }
+        //}
         // lateral uncertainty
-        if (rand_2 < measurement_uncertainty_){
-            if (coin_toss_2 > 0){
-                grid.j -= 1;
-            }else{
-                grid.j += 1;
-            }
-        }
+        //if (rand_2 < measurement_uncertainty_){
+        //    if (coin_toss_2 > 0){
+        //        grid.j -= 1;
+        //    }else{
+        //        grid.j += 1;
+        //    }
+        //}
 
         swarmPos.push_back(grid);
     }
@@ -472,95 +450,310 @@ std::unique_ptr<solver::Observation> DronesModel::makeObservation(DronesState co
     return std::make_unique<DronesObservation>(swarmPos, isLanded);
 }
 
+
 double DronesModel::generateReward(solver::State const &state,
     solver::Action const &action,
         solver::TransitionParameters const */*tp*/,
     solver::State const &nextState) {
-    double current_reward = 0;
+
+    double current_reward = -100;
 
     DronesState const &dronesState = static_cast<DronesState const &>(state);
     DronesState const &nextdronesState = static_cast<DronesState const &>(nextState);
     DronesAction const &dronesAction = static_cast<DronesAction const &>(action);
 
-    /*
-     current_reward += 3 * (dronesState.getSwarmVecPosition().at(dronesState.getSwarmVecPosition().size()-1).j - \
-    dronesState.getSwarmVecPosition().at(0).j - nCols_ + 1);
-    */
-    int max_dist = dronesState.getSwarmVecPosition().at(dronesState.getSwarmVecPosition().size()-1).j - \
-        dronesState.getSwarmVecPosition().at(0).j;
-    // if (5 == max_dist || max_dist == 6){
-    //     current_reward += 0;
-    // }else{
     current_reward -= stepCost_;
-    // }
-    current_reward -= 0.1*(max_dist-5.5)*(max_dist-5.5);
 
-    // if (dronesAction.getActionType() == ActionType::HOVER){
-    //     current_reward -= 0.25;
-    // }
-
-    // if (dronesAction.getActionType() == ActionType::FORWARD){
-    //     current_reward += 0.1*0.5*0.5;
-    // }
+    int objective_position[2] = {4,4};
+    int area_limits[2] = {10,13};
 
     GridPosition position;
     GridPosition next_position;
-    bool reachedGoal = true;
+
+    bool reachedGoal = false;
     int highest_row = 0;
     int lowest_row = nRows_-1;
     bool collision = false;
+
+    double neg_weight = 4;
+    double pos_weight = 6;
+    double action_weight = 2;
+    double highly_desirable = 20;
+    double highly_un_desirable = 5;
+    double extra_weight = 5;
+    double desirability_matrix = 0;
+
+    float collision_weight_value_negative = 0.2;
+    float collision_weight_value_positive = 1.2;
+
+    float trajectory_reward = 0;
+
+    float land_weight = 4;
+
+    bool angle_weights = true;
+    bool distance_weights = true;
+
+    std::string object_direction;
+
     for (unsigned int iter = 0; iter < dronesState.getSwarmVecPosition().size(); iter++){
+
+        float collision_north_weight = 1;
+        float collision_south_weight = 1;
+        float collision_west_weight = 1;
+        float collision_east_weight = 1;
+
         position = dronesState.getSwarmVecPosition().at(iter);
         next_position = nextdronesState.getSwarmVecPosition().at(iter);
 
-        if (position.i < lowest_row){
-            lowest_row = position.i;
-        }
-        if (position.i > highest_row){
-            highest_row = position.i;
+        int drone_x = dronesState.getSwarmVecPosition().at(iter).i;
+        int drone_y = dronesState.getSwarmVecPosition().at(iter).j;
+
+        int x1 = objective_position[0];
+        int y1 = objective_position[1];
+
+        if(drone_x == x1 && drone_y == y1){
+            reachedGoal = true;
         }
 
-        
-        // swarm members are in the map and not in an obstacle
-        if (isValid(next_position)){
-    		      // do nothing
-        }else{
-            collision = true;
-        }
-        //find collisions between the swarm members
+        // Get current Drone Position
+        float distance = pow(2, (drone_x - x1)) + pow(2, (drone_y - y1));
+        float reward_current_pos = round(pow(0.5,distance));
 
-        for (unsigned int sec = 0; sec < dronesState.getSwarmVecPosition().size(); sec++){
-            if (position == dronesState.getSwarmVecPosition().at(sec) && iter != sec){
-                collision = true;
+        // Reward for current Position
+        current_reward -= reward_current_pos;
+
+        // Find Current Angle
+        float angle = atan2(drone_y - y1, drone_x - x1) * 180 / 3.14159;
+
+        // Reward for Next Position
+        float distance_next = pow(2, (next_position.i - x1)) + pow(2, next_position.j - y1);
+        float reward_next_pos = round(pow(0.5, distance_next));
+        //std::cout << distance << " - " << distance_next << endl;
+
+        // CHECK FOR BARRIERS
+
+         if(angle >= 135 || angle <= -135){
+            object_direction = "SOUTH";
+         }
+
+         if(angle > -135 && angle < -45){
+            object_direction = "EAST";
+         }
+
+         if(angle < 135 && angle > 45){
+            object_direction = "WEST";
+         }
+
+         if(angle <= 45 && angle >= -45){
+            object_direction = "NORTH";
+         }
+
+        if(envMap_[position.i][position.j] == DronesCellType::WALL){
+            // NORTH
+            if(position.i == drone_x + 1){
+                collision_north_weight = collision_weight_value_negative;
+                if(object_direction == "SOUTH"){
+                    collision_south_weight = collision_weight_value_positive;
+                }
+                else if(object_direction == "EAST"){
+                    collision_east_weight = collision_weight_value_positive;
+                }
+                else {
+                    collision_west_weight = collision_weight_value_positive;
+                }
+            }
+            // SOUTH
+            else if(position.i == drone_x - 1){
+                collision_south_weight = collision_weight_value_negative;
+                if(object_direction == "NORTH"){
+                    collision_north_weight = collision_weight_value_positive;
+                }
+                else if(object_direction == "EAST"){
+                    collision_east_weight = collision_weight_value_positive;
+                }
+                else {
+                    collision_west_weight = collision_weight_value_positive;
+                }
+            }
+            // EAST
+            else if(position.j == drone_y + 1){
+                collision_east_weight = collision_weight_value_negative;
+                if(object_direction == "NORTH"){
+                    collision_north_weight = collision_weight_value_positive;
+                }
+                else if(object_direction == "SOUTH"){
+                    collision_south_weight = collision_weight_value_positive;
+                }
+                else {
+                    collision_west_weight = collision_weight_value_positive;
+                }
+            }
+            // WEST
+            else{
+                collision_west_weight = collision_weight_value_negative;
+                if(object_direction == "NORTH"){
+                    collision_north_weight = collision_weight_value_positive;
+                }
+                else if(object_direction == "SOUTH"){
+                    collision_south_weight = collision_weight_value_positive;
+                }
+                else {
+                    collision_east_weight = collision_weight_value_positive;
+                }
+            }
+
+        }
+
+        // APPLY REWARDS
+        if (distance_weights == true){
+            if (dronesAction.getActionType() == ActionType::HOVER && reachedGoal == false){
+               current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+            }
+
+            if(reward_next_pos < reward_current_pos){
+                current_reward += (action_weight + highly_desirable)  * pos_weight;
+            }
+
+            if(reward_next_pos > reward_current_pos){
+                current_reward -= extra_weight * (action_weight + highly_un_desirable)  * pos_weight;
+            }
+
+        }
+
+        // APPLY TRAJECTORY CHANGES
+        if(angle_weights == true){
+
+            if(angle >= 135 || angle <= -135){
+
+                if (dronesAction.getActionType() == ActionType::SOUTH){
+                    trajectory_reward = extra_weight * (action_weight + highly_desirable) * pos_weight;
+                    current_reward += trajectory_reward * collision_south_weight;
+                }
+                else {
+                    trajectory_reward = extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+                    current_reward -= trajectory_reward;
+                    desirability_matrix += extra_weight;
+                }
+            }
+
+            if(angle > -135 && angle < -45){
+
+                if (dronesAction.getActionType() == ActionType::EAST){
+                    trajectory_reward = extra_weight * (action_weight + highly_desirable) * pos_weight;
+                    current_reward += trajectory_reward * collision_east_weight;
+                }
+                else {
+                    trajectory_reward = extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+                    current_reward -= trajectory_reward;
+                    desirability_matrix += extra_weight;
+                }
+            }
+
+            if(angle < 135 && angle > 45){
+                if (dronesAction.getActionType() == ActionType::WEST){
+                    trajectory_reward = extra_weight * (action_weight + highly_desirable) * pos_weight;
+                    current_reward += trajectory_reward * collision_west_weight;
+                }
+                else {
+                    trajectory_reward = extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+                    current_reward -= trajectory_reward;
+                    desirability_matrix += extra_weight;
+                }
+            }
+            if(angle <= 45 && angle >= -45){
+                if (dronesAction.getActionType() == ActionType::NORTH){
+                    trajectory_reward = extra_weight * (action_weight + highly_desirable) * pos_weight;
+                    current_reward += trajectory_reward * collision_north_weight;
+                }
+                else {
+                    current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+                    desirability_matrix += extra_weight;
+                }
             }
         }
 
-        // SwarmVec::iterator it = std::find(dronesState.getSwarmVecPosition().begin(), dronesState.getSwarmVecPosition().end(), 22);
+        // Swarm members are in the map and not in an obstacle
 
-        if (position.i > 1){
-            reachedGoal= false;
+        if (isValid(next_position)){
+    	    current_reward += extra_weight * (action_weight + highly_desirable) * pos_weight;
+        }else{
+            current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+            desirability_matrix += desirability_matrix * extra_weight;
         }
+
+        // Boundaries
+
+        if (next_position.i == -1 || next_position.i == 11){
+            current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+        }
+
+        if (next_position.j == 14 || next_position.j == -1){
+            current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+        }
+
+        // Objective Reached
+
+        if (position.i == x1 && position.j == y1){
+            current_reward += extra_weight * (action_weight + highly_desirable) * pos_weight;
+            reachedGoal= true;
+        }
+
+        // Surrounding Areas
+
+        if(position.i - 1 == objective_position[0] && position.j == objective_position[1]){
+            if(dronesAction.getActionType() == ActionType::NORTH){
+                current_reward += extra_weight * (action_weight + highly_desirable) * pos_weight;
+            }
+            else{
+                current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+            }
+        }
+        if(position.i + 1 == objective_position[0] && position.j == objective_position[1]){
+
+            if(dronesAction.getActionType() == ActionType::SOUTH){
+                current_reward += extra_weight * (action_weight + highly_desirable) * pos_weight;
+            }
+            else{
+                current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+            }
+        }
+        if(position.i == objective_position[0] && position.j + 1== objective_position[1]){
+
+            if(dronesAction.getActionType() == ActionType::EAST){
+                current_reward += extra_weight * (action_weight + highly_desirable) * pos_weight;
+            }
+            else{
+                current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+            }
+        }
+
+        if(position.i == objective_position[0] && position.j - 1== objective_position[1]){
+
+            if(dronesAction.getActionType() == ActionType::WEST){
+                current_reward += extra_weight * (action_weight + highly_desirable) * pos_weight;
+            }
+            else{
+                current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
+            }
+        }
+
+
     } // for loop
 
-    current_reward -= 0.1 * (highest_row - lowest_row)*(highest_row - lowest_row);
+    //current_reward -= desirability_matrix;
 
-    // if (lowest_row != highest_row){
-        // current_reward -= 0.1;
-    // }
-    if (collision == true){
-        current_reward -= 11;
+
+	if (dronesAction.getActionType() == ActionType::LAND && reachedGoal == true){
+         current_reward += land_weight * extra_weight * (action_weight + highly_desirable)  * pos_weight;
     }
-
-    if (dronesAction.getActionType() == ActionType::LAND && reachedGoal == false){
-		  current_reward = - 5; //must be bigger than the negative reward from having a narrow formation all the time
-	} else if (dronesAction.getActionType() == ActionType::LAND && reachedGoal == true){
-        current_reward += 10;
+    else if(dronesAction.getActionType() == ActionType::LAND && reachedGoal != true){
+        current_reward -= extra_weight * (action_weight + highly_un_desirable) * neg_weight;
     }
     
-
     return current_reward;
 
 }
+
 
 std::unique_ptr<solver::State> DronesModel::generateNextState(
     solver::State const &state, solver::Action const &action,
@@ -568,12 +761,14 @@ std::unique_ptr<solver::State> DronesModel::generateNextState(
     return makeNextState(static_cast<DronesState const &>(state), action).first;
 }
 
+
 std::unique_ptr<solver::Observation> DronesModel::generateObservation(
         solver::State const */*state*/, solver::Action const &/*action*/,
         solver::TransitionParameters const */*tp*/,
     solver::State const &nextState) {
     return makeObservation(static_cast<DronesState const &>(nextState));
 }
+
 
 solver::Model::StepResult DronesModel::generateStep(solver::State const &state,
     solver::Action const &action) {
@@ -593,6 +788,7 @@ solver::Model::StepResult DronesModel::generateStep(solver::State const &state,
     return result;
 }
 
+
 solver::Model::StepResult DronesModel::generateRealStep(solver::State const &state,
     solver::Action const &action) {
     solver::Model::StepResult result;
@@ -603,8 +799,6 @@ solver::Model::StepResult DronesModel::generateRealStep(solver::State const &sta
 
     solver::State & my_nextState = static_cast<solver::State &>(deref);
 
-    
-
     std::unique_ptr<solver::Observation> real_observation;
     bool isLanded = false;
     SwarmVec swarmPos;
@@ -613,12 +807,27 @@ solver::Model::StepResult DronesModel::generateRealStep(solver::State const &sta
     std::string line;
     std::stringstream sstream;
 
-    pos_file.open("../../../problems/drones/changes/position_measurements.txt");
-    if (pos_file.is_open()){
-        getline(pos_file,line);
+    //pos_file.open("../../../problems/drones/changes/position_measurements.txt");
+
+    //if (pos_file.is_open()){
+    //    getline(pos_file,line);
+    //}
+    //pos_file.close();
+
+    while(line.empty()){
+        //std::cout << line.empty();
+        pos_file.open("../../../problems/drones/changes/position_measurements.txt");
+        if (pos_file.is_open()){
+            //std::cout << "file is open";
+            getline(pos_file,line);
+            //std::cout << line;
+        }
+        pos_file.close();
+        //sleep(0.2);
     }
-    pos_file.close();
+
     sstream << line;
+
     // cout << "length = " << line.length() << endl;
     if (line.length() == 0){
         result.observation = makeObservation(*nextState); // only for the first step
@@ -627,13 +836,12 @@ solver::Model::StepResult DronesModel::generateRealStep(solver::State const &sta
         for (int iter = 0; iter < deref.getSwarmVecPosition().size(); iter++){
             sstream >> swarmmember;
             std::cout << "currently reading : " << swarmmember << std::endl;
+            std::cout << "swarm size : " << deref.getSwarmVecPosition().size() << std::endl;
             swarmPos.push_back(swarmmember);
         }
         result.observation = std::make_unique<DronesObservation>(swarmPos, isLanded);
         result.nextState = std::make_unique<DronesState>(swarmPos, isLanded);
     }
-
-
 
 
     result.reward = generateReward(state, action, nullptr, *nextState);
@@ -642,6 +850,8 @@ solver::Model::StepResult DronesModel::generateRealStep(solver::State const &sta
 
     return result;
 }
+
+
 
 /* -------------- Methods for handling model changes ---------------- */
 void DronesModel::applyChanges(std::vector<std::unique_ptr<solver::ModelChange>> const &changes,
@@ -671,12 +881,12 @@ void DronesModel::applyChanges(std::vector<std::unique_ptr<solver::ModelChange>>
 
         DronesCellType newCellType;
         if (dronesChange.changeType == "Add Obstacles") {
-            newCellType = DronesCellType::WALL;
+            newCellType = DronesCellType::EMPTY;
         } else if (dronesChange.changeType == "Remove Obstacles") {
             newCellType = DronesCellType::EMPTY;
         } else {
             cout << "Invalid change type: " << dronesChange.changeType;
-            continue;
+           continue;
         }
 
         for (long i = dronesChange.i0; i <= dronesChange.i1; i++) {
@@ -707,18 +917,18 @@ void DronesModel::applyChanges(std::vector<std::unique_ptr<solver::ModelChange>>
         // be deleted.
 
 
-        // if (newCellType == DronesCellType::WALL) {
-        //     solver::FlaggingVisitor visitor(pool, solver::ChangeFlags::DELETED);
-        //     // Robot is in a wall.
-        //     tree->boxQuery(visitor,
-        //             {iLo, jLo, 0.0, 0.0, 0.0},
-        //             {iHi, jHi, iMx, jMx, 1.0});
-        //     // Opponent is in a wall.
-        //     tree->boxQuery(visitor,
-        //             {0.0, 0.0, iLo, jLo, 0.0},
-        //             {iMx, jMx, iHi, jHi, 1.0});
+         if (newCellType == DronesCellType::WALL) {
+             solver::FlaggingVisitor visitor(pool, solver::ChangeFlags::DELETED);
+             // Robot is in a wall.
+             tree->boxQuery(visitor,
+                     {iLo, jLo, 0.0, 0.0, 0.0},
+                     {iHi, jHi, iMx, jMx, 1.0});
+             // Opponent is in a wall.
+             tree->boxQuery(visitor,
+                     {0.0, 0.0, iLo, jLo, 0.0},
+                     {iMx, jMx, iHi, jHi, 1.0});
 
-        // }
+         }
 
         // Also, state transitions around the edges of the new / former obstacle must be revised.
         solver::FlaggingVisitor visitor(pool, solver::ChangeFlags::TRANSITION);
@@ -743,7 +953,6 @@ void DronesModel::applyChanges(std::vector<std::unique_ptr<solver::ModelChange>>
         }
     }
 }
-
 
 
 std::vector<std::unique_ptr<solver::State>> DronesModel::generateParticles(
@@ -798,21 +1007,22 @@ void DronesModel::drawEnv(std::ostream &os) {
 
 void DronesModel::defineWaypoints() {
     // Read Waypoints File
-    std::ifstream waypoints_file;
-    std::string str;
-    std::string file_contents;
-    waypoints_file.open("../../../problems/drones/maps/waypoints.txt");
-    if (waypoints_file == NULL) {
-        printf("can not open 'waypoints.txt' file.")
-    }
-    else (waypoints_file.is_open()) {
-        while (std::getline(file, str)) {
-            file_contents += str;
-            file_contents.push_back('\n')
-        }
-    }
-    waypoints_file.close();
-    waypoints << file_contents;
+    //std::ifstream waypoints_file;
+    //std::string str;
+    //std::string file_contents;
+    //waypoints_file.open("../../../problems/drones/maps/waypoints.txt");
+    //if (waypoints_file == NULL) {
+    //    printf("can not open 'waypoints.txt' file.")
+    //}
+    //else (waypoints_file.is_open()) {
+    //    while (std::getline(file, str)) {
+    //        file_contents += str;
+    //        file_contents.push_back('\n')
+    //    }
+    //    waypoints_file.close();
+    //}
+
+    //waypoints << file_contents;
 
 }
 

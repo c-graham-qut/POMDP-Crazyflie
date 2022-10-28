@@ -19,16 +19,14 @@ namespace drones {
 /** An enumeration of all the available actions in the Drones PODMP. */
 enum class ActionType : long {
     // make formation wider
-    WIDER = 0,
-    // make formation narrower
-    NARROWER = 1,
+    NORTH = 0,
+    SOUTH = 1,
+    EAST = 2,
+    WEST = 3,
+
     // keep formation width and move forward
-    FORWARD = 2,
-    // land the drones (basically give up)
-    LAND = 3,
+    LAND = 4,
     // rearrange formation to a straight line
-    REARRANGE = 4,
-    // do not move
     HOVER = 5,
     
 };

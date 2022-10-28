@@ -31,23 +31,23 @@ std::unique_ptr<solver::Action> DronesAction::copy() const {
 
 void DronesAction::print(std::ostream &os) const {
     switch (actionType_) {
-    case ActionType::WIDER:
-        os << "WIDER";
+    case ActionType::NORTH:
+        os << "NORTH";
         break;
-    case ActionType::NARROWER:
-        os << "NARROWER";
+    case ActionType::SOUTH:
+        os << "SOUTH";
+        break;
+    case ActionType::EAST:
+        os << "EAST";
+        break;
+    case ActionType::WEST:
+        os << "WEST";
         break;
     case ActionType::LAND:
         os << "LAND";
         break;
-    case ActionType::FORWARD:
-        os << "FORWARD";
-        break;
     case ActionType::HOVER:
         os << "HOVER";
-        break;
-    case ActionType::REARRANGE:
-        os << "REARRANGE";
         break;
     default:
         os << "ERROR-" << static_cast<long>(actionType_);
