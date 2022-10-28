@@ -87,11 +87,20 @@ public:
 
     /** Runs a full simulation, returning the total discounted reward. */
     double runSimulation();
+
+
     /** Steps the simulation forward one step.
      *
      * a false return value means the simulation has ended.
      */
     bool stepSimulation();
+
+    /** Steps the simulation forward one step with the observation from the real system (Hardware-in-the-Loop)
+     *
+     * a false return value means the simulation has ended.
+     */
+    std::pair<float, bool> HiLstepSimulation(int entryNo);
+
     /** Handles the given vector of changes. The "areDynamic" flag determines whether the update
      * will be dynamic (only affecting the current subtree), or static (affecting the entire tree,
      * including past states).

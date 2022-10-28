@@ -124,6 +124,7 @@ void Solver::initializeEmpty() {
 /* ------------------- Policy mutators ------------------- */
 void Solver::improvePolicy(BeliefNode *startNode, long numberOfHistories, long maximumDepth,
         double timeout) {
+
     double startTime = tapir::clock_ms();
     if (numberOfHistories < 0) {
         numberOfHistories = options_->historiesPerStep;
@@ -145,7 +146,7 @@ void Solver::improvePolicy(BeliefNode *startNode, long numberOfHistories, long m
     }
 
     // Retrieve the sampling function to use.
-    std::function<StateInfo *()> sampler = getStateSampler(startNode);
+    std::function<StateInfo *()> sampler = getStateSampler(startNode); 
     if (sampler == nullptr) {
         return;
     }
@@ -188,7 +189,6 @@ BeliefNode *Solver::replenishChild(BeliefNode *currNode, Action const &action,
             particles.push_back(state);
         }
     }
-
     // Attempt to generate particles for next state based on the current belief,
     // the observation, and the action.
     std::vector<std::unique_ptr<State>> nextParticles = (model_->generateParticles(currNode, action,
@@ -198,11 +198,11 @@ BeliefNode *Solver::replenishChild(BeliefNode *currNode, Action const &action,
         // If that fails, ignore the current belief.
         nextParticles = model_->generateParticles(currNode, action, obs, deficit);
     }
+
     if (nextParticles.empty()) {
         debug::show_message("ERROR: Failed to generate new particles!");
         return nullptr;
     }
-
     for (std::unique_ptr<State> &uniqueStatePtr : nextParticles) {
         StateInfo *stateInfo = statePool_->createOrGetInfo(*uniqueStatePtr);
 
@@ -667,11 +667,14 @@ void Solver::updateImmediate(BeliefNode *node, Action const &action, Observation
 /* ------------------ Initialization methods ------------------- */
 void Solver::initialize() {
     // Core data structures
-    statePool_ = std::make_unique<StatePool>(model_->createStateIndex());
+    if (options_->useStateIndex) {
+        statePool_ = std::make_unique<StatePool>(model_->createStateIndex());
+    } else {
+        statePool_ = std::make_unique<StatePool>(nullptr);
+    }
     histories_ = std::make_unique<Histories>();
     policy_ = std::make_unique<BeliefTree>(this);
     policy_->reset();
-
     // Serializable model-specific customizations
     actionPool_ = nullptr;
     observationPool_ = nullptr;
@@ -687,7 +690,8 @@ void Solver::initialize() {
 std::function<StateInfo *()> Solver::getStateSampler(BeliefNode *node) {
     // Nullptr => sample initial sates from the model.
     if (node == nullptr) {
-        return [this]() {
+        return [this]() 
+        {
             return statePool_->createOrGetInfo(*model_->sampleAnInitState());
         };
     }
@@ -701,6 +705,7 @@ std::function<StateInfo *()> Solver::getStateSampler(BeliefNode *node) {
         }
     }
 
+    // debug::show_message("particles check!");
     // No non-terminal states => return an empty function.
     if (nonTerminalStates.empty()) {
         debug::show_message("ERROR: No non-terminal particles in the current node!");
@@ -724,7 +729,7 @@ long Solver::multipleSearches(BeliefNode *startNode, std::function<StateInfo *()
     long numSearches = 0;
     while (true) {
         // If we've done enough searches, stop searching.
-        if (maxNumSearches != 0 && numSearches >= maxNumSearches) {
+        if (maxNumSearches != 0 && numSearches >= maxNumSearches) {;
             break;
         }
         // If we've gone past the termination time, stop searching.
@@ -743,7 +748,6 @@ long Solver::multipleSearches(BeliefNode *startNode, std::function<StateInfo *()
 
 void Solver::singleSearch(BeliefNode *startNode, StateInfo *startStateInfo, long maximumDepth) {
     HistorySequence *sequence = histories_->createSequence();
-
     HistoryEntry *firstEntry = sequence->addEntry();
     firstEntry->registerState(startStateInfo);
     firstEntry->registerNode(startNode);

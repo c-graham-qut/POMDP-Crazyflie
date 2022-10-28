@@ -1,5 +1,5 @@
 MODULE_NAME = problems
-CHILD_DIRS := shared rocksample tag homecare pushbox conttag
+CHILD_DIRS := shared drones
 
 ifdef HAS_ROOT_MAKEFILE
 

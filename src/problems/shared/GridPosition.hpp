@@ -18,6 +18,8 @@
  * i = 0, 1, ... is the row, from top to bottom.
  * j = 0, 1, ... is the column, from left to right.
  */
+
+
 struct GridPosition {
 	/** The row number, starting from 0 for the topmost row. */
     long i;
@@ -87,4 +89,5 @@ inline bool operator!=(GridPosition const &lhs, GridPosition const &rhs) {
     return lhs.i != rhs.i || lhs.j != rhs.j;
 }
 
+typedef std::vector<GridPosition> SwarmVec; 
 #endif /* GRIDPOSITION_HPP_ */

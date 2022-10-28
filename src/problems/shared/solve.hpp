@@ -56,7 +56,7 @@ int solve(int argc, char const *argv[]) {
     RandomGenerator randGen;
     randGen.seed(options.seed);
     randGen.discard(10);
-
+    
     std::unique_ptr<ModelType> newModel = std::make_unique<ModelType>(&randGen,
             std::make_unique<OptionsType>(options));
     if (!options.baseConfigPath.empty()) {
@@ -73,13 +73,11 @@ int solve(int argc, char const *argv[]) {
 #ifdef GOOGLE_PROFILER
     ProfilerStart("solve.prof");
 #endif
-
     solver.improvePolicy();
 
 #ifdef GOOGLE_PROFILER
     ProfilerStop();
 #endif
-
     totT = tapir::clock_ms() - tStart;
     cout << "Total solving time: " << totT << "ms" << endl;
 

@@ -1,0 +1,196 @@
+Seed: 1587025386
+InitialPositions = (8, 3) (8, 9) 
+Constructed the DronesModel
+Discount: 1
+Size: 10 by 13
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 5
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+48496 histories in 2000.83ms.
+Total solving time: 2000.86ms
+Saving to file...    Done.
+Global seed: 1587025392
+
+Run #1
+PRNG engine state: 1245770655
+InitialPositions = (8, 3) (8, 9) 
+Constructed the DronesModel
+Discount: 1
+Size: 10 by 13
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 5
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+Loading policy... 
+InitialPositions = (8, 3) (8, 9) 
+Constructed the DronesModel
+Discount: 1
+Size: 10 by 13
+measurement_uncertainty: 0 %
+longitudinal_movement_uncertainty: 0 %
+lateral_movement_uncertainty: 0 %
+stepCost: 0.2
+maximumDepth: 20
+nActions: 5
+nStVars: 5
+minParticleCount: 5000
+Environment:
+
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0  0  0  0  0  0  0 
+Running...
+
+
+t-0
+State: (8, 3) (8, 9) isLanded: 0
+Heuristic Value: 0
+Belief #0
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+...1.....2...
+.............
+46023 histories in 2000.02ms.
+Before:                                 After:                                  
+2.91117 from 48496 p. with 48496 starts.5.47188 from 94519 p. with 94519 starts.
+Action children:                        Action children:                        
+   +5.56:           FORWARD   35658        +7.03:           FORWARD   81681     
+   -4.31:         REARRANGE    6954        -4.31:         REARRANGE    6954     
+   -4.46:          NARROWER    3601        -4.46:          NARROWER    3601     
+   -4.78:             WIDER    1406        -4.78:             WIDER    1406     
+   -5.00:              LAND     877        -5.00:              LAND     877     
+                                                                                
+Action: FORWARD
+Transition: NULL
+Reward: -0.225
+Observation: (7, 3) (7, 9) isLanded = 0
+Discount: 1; Total Reward: 0
+
+
+t-1
+State: (7, 3) (7, 9) isLanded: 0
+Heuristic Value: 0
+Belief #2
+.............
+.............
+.............
+.............
+.............
+.............
+.............
+...1.....2...
+.............
+.............
+51391 histories in 2000.02ms.
+Before:                                 After:                                  
+7.25694 from 81681 p. with 0 starts.    7.70251 from 133072 p. with 51391 starts.
+Action children:                        Action children:                        
+   +7.96:           FORWARD   76910        +8.14:           FORWARD  128301     
+   -3.95:         REARRANGE    2387        -3.95:         REARRANGE    2387     
+   -4.13:          NARROWER    1455        -4.13:          NARROWER    1455     
+   -4.56:             WIDER     604        -4.56:             WIDER     604     
+   -5.00:              LAND     324        -5.00:              LAND     324     
+                                                                                
+Action: FORWARD
+Transition: NULL
+Reward: -0.225
+Observation: (6, 3) (6, 9) isLanded = 0
+Discount: 1; Total Reward: -0.225
+
+
+t-2
+State: (6, 3) (6, 9) isLanded: 0
+Heuristic Value: 0
+Belief #13
+.............
+.............
+.............
+.............
+.............
+.............
+...1.....2...
+.............
+.............
+.............
+Model changing.
+Add Obstacles from (4, 3) to (4, 3)
+Changes complete
+Total of 1128.47 ms used for changes.
+58960 histories in 2000.01ms.
+Before:                                 After:                                  
+8.36838 from 128301 p. with 0 starts.   -4.92516 from 187261 p. with 187261 starts.
+Action children:                        Action children:                        
+   +8.53:           FORWARD  126599        -4.85:         REARRANGE   22006     
+   -3.51:         REARRANGE     796        -4.93:           FORWARD   12375     
+   -3.75:          NARROWER     515        -4.93:          NARROWER   11952     
+   -4.24:             WIDER     263        -5.00:              LAND    7996     
+   -5.00:              LAND     127        -5.12:             WIDER    4631     
+                                                                                
+Action: REARRANGE
+Transition: NULL
+Reward: -0.225
+Observation: (6, 3) (6, 9) isLanded = 0
+Discount: 1; Total Reward: -0.45
+Replenishing particles...          Done
+
+
+t-3
+State: (6, 3) (6, 9) isLanded: 0
+Heuristic Value: 0
+Belief #30846
+.............
+.............
+.............
+.............
+...X.........
+.............
+...1.....2...
+.............
+.............
+.............
