@@ -98,6 +98,7 @@ void Simulator::setMaxStepCount(long maxStepCount) {
 }
 
 double Simulator::runSimulation() {
+    model_->defineWaypoints();
     while (stepSimulation()) {
     }
     if (options_->hasVerboseOutput) {
@@ -318,6 +319,7 @@ std::pair<float, bool> Simulator::HiLstepSimulation(int entryNo) {
     } else {
         solver_->improvePolicy(currentBelief);
     }
+
     totalImprovementTime_ += (tapir::clock_ms() - impSolTimeStart);
 
     if (options_->hasVerboseOutput) {
@@ -340,16 +342,14 @@ std::pair<float, bool> Simulator::HiLstepSimulation(int entryNo) {
         return std::make_pair(-99999, false);
     }
     std::ofstream outputfile;
+
     outputfile.open("../../../problems/drones/changes/output.txt", std::ofstream::app);
     if (outputfile.is_open()){
         outputfile << entryNo+1 << " "<< *action << std::endl; // write out action here
-        // cout << entryNo+1 << " "<< *action << endl; // write out action here
+        cout << entryNo+1 << " "<< *action << endl; // write out action here
         outputfile.close();
     }
     sleep(2); // waits 2 seconds so the drones can reach the next position
-
-
-
 
     // Model::StepResult result = model_->generateStep(*currentState, *action);
 
